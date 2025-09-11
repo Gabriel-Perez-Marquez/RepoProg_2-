@@ -18,7 +18,7 @@ public class Principal {
 		
 		while(numIntentosDisp > cero && !acierto ) {
 			System.out.println("Introduce el código (4 digitos)");
-			System.out.println("Tienes");
+			System.out.println("Tienes " + numIntentosDisp + " intentos disponibles");
 			respStr = sc.nextLine();
 			respuesta = Integer.parseInt(respStr);
 			
@@ -35,7 +35,6 @@ public class Principal {
 			
 			}
 					
-			
 		}
 		
 		if(numIntentosDisp == cero) {
