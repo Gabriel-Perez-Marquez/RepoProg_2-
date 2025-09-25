@@ -76,7 +76,7 @@ public class Programa {
 	@Override
 	public String toString() {
 		return "Programa [nombre=" + nombre + ", precio=" + precio + ", categoria=" + categoria + ", anuncios="
-				+ anuncios + "]";
+				+ anuncios + ", numSusc=" + numSusc + "]";
 	}
 		
 	

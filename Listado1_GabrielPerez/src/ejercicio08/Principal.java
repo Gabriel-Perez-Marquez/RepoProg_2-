@@ -1,5 +1,7 @@
 package ejercicio08;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -19,7 +21,12 @@ public class Principal {
 		
 		Scanner sc = new Scanner(System.in);
 		int respuesta = 0;
+		List<Programa> suscripciones = new ArrayList<Programa>();
 		
+		suscripciones.add(new Programa("Básico", 5.66, "Cine", true));
+		suscripciones.add(new Programa("Básico sin anuncios", 7.00, "Cine", false));
+		suscripciones.add(new Programa("Deporte", 7.50, "Cine", false));
+		suscripciones.add(new Programa("Cine + deporte", 11.99, "Cine", false));
 		
 		
 		
@@ -27,13 +34,62 @@ public class Principal {
 		
 		
 		do {
-			
+			System.out.println();
 			System.out.println("Menú");
 			System.out.println("----");
 			System.out.println("0. Salir");
 			System.out.println("1. Mirar distintas suscripciones");
 			System.out.println("2. Cancelar suscripcion");
 			System.out.println("3. Mirar cuanta gente tiene la suscripcion");
+			System.out.println("4. Editar suscripciones");
+			System.out.println("5. Contratar suscipción");
+			
+			respuesta = Integer.parseInt(sc.nextLine());
+			
+			switch (respuesta) {
+				case 1:
+					
+					suscripciones.stream()
+						.forEach(p -> System.out.println(p));
+					
+					break;
+					
+					
+				case 2:
+					
+					
+					break;
+					
+					
+				case 3:
+					
+					
+					break;
+					
+					
+				case 4:
+					
+					
+					break;
+					
+					
+				case 5:
+					
+					suscripciones.stream()
+						.forEach(p -> System.out.println(p));
+					
+					System.out.println("¿Qué suscripción quieres contratar?");
+					respuesta = Integer.parseInt(sc.nextLine());
+					
+					suscripciones.get(respuesta - 1).setNumSusc(suscripciones.get(respuesta).getNumSusc()+1);
+					
+					break;
+						
+						
+				default:
+					throw new IllegalArgumentException("Unexpected value: " + respuesta);
+			}
+			
 			
 		} while (respuesta != 0);
 		
