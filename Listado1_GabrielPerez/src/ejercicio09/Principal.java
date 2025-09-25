@@ -1,6 +1,5 @@
 package ejercicio09;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Principal {
@@ -23,12 +22,8 @@ public class Principal {
 		
 		for(int i = 0; i< tam; i++) {
 			num = dado.lanzarDado();
-			if(i < frecuencias.length) {			
-				frecuencias[num - 1]++;
-				System.out.println("Indice" + (num - 1));
-			}
-			
-			
+			frecuencias[num - 1]++;
+				
 			numerosTiradas[i] = num;
 			System.out.println(num);
 		}
@@ -37,19 +32,15 @@ public class Principal {
 		System.out.println("El número mayor es "+ dado.buscarMayor(numerosTiradas));
 		System.out.println("\nEl número menor es "+ dado.buscarMenor(numerosTiradas));
 		
-		System.out.println("Los numeros mas repetidos son: ");
 		
 		masRepetidos = dado.buscarMasRepetidos(frecuencias, dado.encontrarMaximaFrecuencia(frecuencias));
 		
-		for(int f : frecuencias) {
-			System.out.println(f);
-		}
 		
-//		if (masRepetidos.size() == 1) {
-//            System.out.println("Número que más se repite: " + masRepetidos.get(0) + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces)");
-//        } else {
-//            System.out.println("Números que más se repiten: " + masRepetidos + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces cada uno)");
-//        }
+		if (masRepetidos.size() == 1) {
+            System.out.println("\nNúmero que más se repite: " + masRepetidos.get(0) + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces)");
+        } else {
+            System.out.println("\nNúmeros que más se repiten: " + masRepetidos + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces cada uno)");
+        }
 		
 		
 		
