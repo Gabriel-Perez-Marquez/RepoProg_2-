@@ -1,4 +1,4 @@
-package ejercicio09;
+package ejercicio09Corregido;
 
 import java.util.List;
 
@@ -13,10 +13,7 @@ public class Principal {
 		 * Simula 10 tiradas y muestra la puntuacion mayor, la menor y que numero se ha repetido mas veces*/ 
 		
 		
-		int numMax = 1;
-		int numMin = 6;
-		
-		Dado dado = new Dado(numMax, numMin);
+		Dado dado = new Dado();
 		int num;
 		int tam = 10;
 		int [] numerosTiradas = new int[tam];
