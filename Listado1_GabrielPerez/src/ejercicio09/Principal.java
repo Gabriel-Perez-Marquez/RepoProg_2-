@@ -1,5 +1,6 @@
 package ejercicio09;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Principal {
@@ -13,33 +14,31 @@ public class Principal {
 		 * Simula 10 tiradas y muestra la puntuacion mayor, la menor y que numero se ha repetido mas veces*/ 
 		
 		
-		Dado dado = new Dado();
-		int num;
-		int tam = 10;
-		int [] numerosTiradas = new int[tam];
-		int[] frecuencias = new int[6];
+		int numMax = 1;
+		int numMin = 6;
+		
+		Dado dado = new Dado(numMax, numMin, new ArrayList<Integer>(), new int[6]);
 		List<Integer> masRepetidos;
 		
-		for(int i = 0; i< tam; i++) {
-			num = dado.lanzarDado();
-			frecuencias[num - 1]++;
-				
-			numerosTiradas[i] = num;
-			System.out.println(num);
+		dado.lanzarDado();
+		
+		for(int i : dado.getTiradas()) {
+			System.out.println(i);
 		}
 		
+		
 		System.out.println();
-		System.out.println("El número mayor es "+ dado.buscarMayor(numerosTiradas));
-		System.out.println("\nEl número menor es "+ dado.buscarMenor(numerosTiradas));
+		System.out.println("El número mayor es "+ dado.buscarMayor());
+		System.out.println("\nEl número menor es "+ dado.buscarMenor());
 		
 		
-		masRepetidos = dado.buscarMasRepetidos(frecuencias, dado.encontrarMaximaFrecuencia(frecuencias));
+		masRepetidos = dado.buscarMasRepetidos(dado.encontrarMaximaFrecuencia());
 		
 		
 		if (masRepetidos.size() == 1) {
-            System.out.println("\nNúmero que más se repite: " + masRepetidos.get(0) + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces)");
+            System.out.println("\nNúmero que más se repite: " + masRepetidos.get(0) + " (" + dado.encontrarMaximaFrecuencia() + " veces)");
         } else {
-            System.out.println("\nNúmeros que más se repiten: " + masRepetidos + " (" + dado.encontrarMaximaFrecuencia(frecuencias) + " veces cada uno)");
+            System.out.println("\nNúmeros que más se repiten: " + masRepetidos + " (" + dado.encontrarMaximaFrecuencia() + " veces cada uno)");
         }
 		
 		
