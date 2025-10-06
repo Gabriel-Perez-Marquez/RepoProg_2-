@@ -10,6 +10,11 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
         int opcion;
         Figura figura;
+        double lado;
+        double radioE;
+        double altura;
+        double base;
+        double radioC;
 
 
         do {
@@ -26,23 +31,23 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     System.out.println("Introduce el radio del círculo: ");
-                    double radioC = sc.nextDouble();
+                    radioC = sc.nextDouble();
                     figura = new Circulo(radioC);
                     System.out.printf("Área del círculo: %.2f", figura.calcularArea());
                     break;
 
                 case 2:
                     System.out.println("Introduce la base del rectángulo: ");
-                    double base = sc.nextDouble();
+                    base = sc.nextDouble();
                     System.out.println("Introduce la altura del rectángulo: ");
-                    double altura = sc.nextDouble();
+                    altura = sc.nextDouble();
                     figura = new Rectangulo(base, altura);
                     System.out.printf("Área del rectángulo: %.2f", figura.calcularArea());
                     break;
 
                 case 3:
                     System.out.println("Introduce el radio de la esfera: ");
-                    double radioE = sc.nextDouble();
+                    radioE = sc.nextDouble();
                     figura = new Esfera(radioE);
                     System.out.printf("Área de la esfera: %.2f", figura.calcularArea());
                     System.out.printf("Volumen de la esfera: %.2f", figura.calcularVolumen());
@@ -50,7 +55,7 @@ public class Principal {
 
                 case 4:
                     System.out.println("Introduce el lado del cubo: ");
-                    double lado = sc.nextDouble();
+                    lado = sc.nextDouble();
                     figura = new Cubo(lado);
                     System.out.printf("Área del cubo: %.2f", figura.calcularArea());
                     System.out.printf("Volumen del cubo: %.2f", figura.calcularVolumen());
