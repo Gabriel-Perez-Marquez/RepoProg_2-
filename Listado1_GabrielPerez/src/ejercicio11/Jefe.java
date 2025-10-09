@@ -55,8 +55,9 @@ public class Jefe extends PuestoTrabajo	{
 	public double calcularSueldo() {
 		double sueldo = 0;
 		
+		sueldo += horas*getPrecioHora() + horasExtra*getPrecioHoraExtra() + extraJefe;
 		
-		return 0;
+		return sueldo;
 	}
 	
 	
