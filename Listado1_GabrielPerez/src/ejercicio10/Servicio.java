@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Servicio {
 
-	public double calcularMediaAreas(List<Figura> figuras) {\
-		double sumaAreas;
+	public double calcularMediaAreas(List<Figura> figuras) {
+		double sumaAreas = 0;
 		for(Figura f : figuras) {
     		if(f instanceof Circulo) {
     			f = (Circulo) f;
@@ -15,6 +15,8 @@ public class Servicio {
     			sumaAreas += f.calcularArea();
     		}
     	}
+		
+		return sumaAreas/figuras.size();
 	}
 	
 }

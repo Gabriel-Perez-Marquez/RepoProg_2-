@@ -115,9 +115,9 @@ public class Dado {
 
 	
 	
-	public int competirContraOtroDato(Dado dado2, int rondas) {
-		dado2.setTiradas(dado2.lanzarDado());
-	}
+//	public int competirContraOtroDato(Dado dado2, int rondas) {
+//		dado2.setTiradas(dado2.lanzarDado());
+//	}
 	
 	
 }
