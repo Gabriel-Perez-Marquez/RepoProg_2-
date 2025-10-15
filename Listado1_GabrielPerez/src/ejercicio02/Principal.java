@@ -1,6 +1,5 @@
 package ejercicio02;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Principal {
@@ -16,6 +15,7 @@ public class Principal {
 		
 		int numAprobados = 0;
 		int numSuspensos= 0;
+		double suma = 0;
 		double notaMedia;
 		
 		 
@@ -24,15 +24,25 @@ public class Principal {
 		}
 		
 		
-		for (int i = 0; i< numNotas; i++) {
+		for (int i = 0; i< notas.length; i++) {
 			if(notas[i] >= 5) {
 				numAprobados++;
 			} else if (notas[i] <= 5) {
 				numSuspensos--;
 			}
 		}
+		
+		for(int i = 0; i< notas.length; i++) {
+			suma += notas[i];
+		}
+		notaMedia = suma / notas.length;
+		
+		System.out.println("El número de aprobados de todas las notas es de " + numAprobados + " aprobados");
+		System.out.println("El número de suspensos de todas las notas es de " + numSuspensos + " aprobados");
+		System.out.printf("La nota media es de un %.2f ", notaMedia);
 		 
 		
+		sc.close();
 		 
 	}
 
