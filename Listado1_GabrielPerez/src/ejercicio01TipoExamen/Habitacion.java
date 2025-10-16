@@ -2,7 +2,6 @@ package ejercicio01TipoExamen;
 
 public class Habitacion {
 
-	
 	private double precioBase;
 	private boolean ocupada;
 	private String nombre;
@@ -78,7 +77,7 @@ public class Habitacion {
 	
 
 	
-	 public double calcularPrecioHab() {
+	 public double calcularPrecioHab(double descuento) {
 		 return numDiasReserva * precioBase;
 	 }
 	

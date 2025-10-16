@@ -25,9 +25,9 @@ public class Apartamento extends Habitacion{
 	}
 
 	@Override
-	public double calcularPrecioHab() {
+	public double calcularPrecioHab(double descuento) {
 		// TODO Auto-generated method stub
-		return super.calcularPrecioHab() + precioServicioLimp;
+		return super.calcularPrecioHab(descuento) + precioServicioLimp;
 	}
 	
 	
