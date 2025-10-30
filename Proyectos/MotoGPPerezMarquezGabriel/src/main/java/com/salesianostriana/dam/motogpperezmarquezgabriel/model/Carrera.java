@@ -21,5 +21,9 @@ public class Carrera {
 	private String nombreCircuito;
 	private LocalDate fecha;
 	private List<Equipo> equipos;
+	private boolean jugada;
+	private Piloto primer_puesto;
+	private Piloto segundo_puesto;
+	private Piloto terecer_puesto;
 
 }
