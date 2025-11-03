@@ -20,6 +20,8 @@ public class Equipo {
 	private Long id;
 	private double dinero;
 	private Patrocinadores patrocinador;
+	@OneToMany
+	private List<Piloto> pilotos;
 	private int puntos;
 
 }
