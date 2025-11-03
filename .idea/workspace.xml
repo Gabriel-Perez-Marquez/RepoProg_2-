@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a7e2c3b-211d-49dd-a22c-f4750579e594" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/src/main/java/com/salesianostriana/dam/motogpperezmarquezgabriel/model/Moto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/src/main/java/com/salesianostriana/dam/motogpperezmarquezgabriel/model/Moto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/src/main/java/com/salesianostriana/dam/motogpperezmarquezgabriel/model/Piloto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyectos/MotoGPPerezMarquezGabriel/src/main/java/com/salesianostriana/dam/motogpperezmarquezgabriel/model/Piloto.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Gabriel-Perez-Marquez"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Gabriel-Perez-Marquez/RepoProg_2-.git",
+    "accountId": "6791b90c-38b3-409e-9104-aac3983317f1"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="34xmfCMZCEcFJ46EalKJtlHpTrc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a7e2c3b-211d-49dd-a22c-f4750579e594" name="Changes" comment="" />
+      <created>1762163697880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762163697880</updated>
+    </task>
+    <servers />
+  </component>
+</project>

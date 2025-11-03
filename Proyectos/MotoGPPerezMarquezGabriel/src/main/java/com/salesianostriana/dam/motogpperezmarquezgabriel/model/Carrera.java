@@ -24,8 +24,5 @@ public class Carrera {
 	@OneToMany
 	private List<Equipo> equipos;
 	private boolean jugada;
-	private Piloto primer_puesto;
-	private Piloto segundo_puesto;
-	private Piloto terecer_puesto;
 
 }

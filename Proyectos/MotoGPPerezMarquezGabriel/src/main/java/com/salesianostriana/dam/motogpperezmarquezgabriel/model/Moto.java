@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class Moto {
 
 	@Id
@@ -18,6 +18,4 @@ public class Moto {
 	private Long id;
 	private String marca;
 	private int porcentDesgaste;
-	@OneToOne
-	private Piloto piloto;
 }

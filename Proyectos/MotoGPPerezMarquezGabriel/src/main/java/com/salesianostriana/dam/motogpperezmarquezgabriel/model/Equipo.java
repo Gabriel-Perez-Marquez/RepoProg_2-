@@ -18,8 +18,6 @@ public class Equipo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@OneToMany
-	private List<Piloto> pilotos;
 	private double dinero;
 	private Patrocinadores patrocinador;
 	private int puntos;
