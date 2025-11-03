@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Carrera {
 	private Long id;
 	private String nombreCircuito;
 	private LocalDate fecha;
+	@OneToMany
 	private List<Equipo> equipos;
 	private boolean jugada;
 	private Piloto primer_puesto;
