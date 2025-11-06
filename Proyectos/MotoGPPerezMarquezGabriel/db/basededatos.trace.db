@@ -8332,3 +8332,633 @@ INSERT INTO moto (id, marca, PORCENTDESGASTE, piloto_id) VALUES (NULL, 'Honda', 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+2025-11-06 11:39:38.762242+01:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:334)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 60 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/perez.magab24_triana/Documents/RepoProg_2-/Proyectos/MotoGPPerezMarquezGabriel/db/basededatos.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 54 more
+2025-11-06 11:50:10.468709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS equipo ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS equipo ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS equipo ( [42001-232]
+2025-11-06 11:50:10.476709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; expected "INSERT"; SQL statement:
+id BIGINT PRIMARY KEY AUTO_INCREMENT, [42001-232]
+2025-11-06 11:50:10.477709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]dinero DOUBLE,"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]dinero DOUBLE,"; expected "DELETE, DROP"; SQL statement:
+dinero DOUBLE, [42001-232]
+2025-11-06 11:50:10.479709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]patrocinador VARCHAR(150),"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]patrocinador VARCHAR(150),"; expected "PREPARE"; SQL statement:
+patrocinador VARCHAR(150), [42001-232]
+2025-11-06 11:50:10.480709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]puntos INT"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]puntos INT"; expected "PREPARE"; SQL statement:
+puntos INT [42001-232]
+2025-11-06 11:50:10.481724+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*])"
+Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-232]
+2025-11-06 11:50:10.484709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 11:50:10.487709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 11:50:10.488709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 11:50:10.490709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 11:50:10.492709+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 11:51:24.695819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS equipo ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS equipo ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS equipo ( [42001-232]
+2025-11-06 11:51:24.704826+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; expected "INSERT"; SQL statement:
+id BIGINT PRIMARY KEY AUTO_INCREMENT, [42001-232]
+2025-11-06 11:51:24.705819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]dinero DOUBLE,"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]dinero DOUBLE,"; expected "DELETE, DROP"; SQL statement:
+dinero DOUBLE, [42001-232]
+2025-11-06 11:51:24.706821+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]patrocinador VARCHAR(150),"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]patrocinador VARCHAR(150),"; expected "PREPARE"; SQL statement:
+patrocinador VARCHAR(150), [42001-232]
+2025-11-06 11:51:24.707819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]puntos INT"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]puntos INT"; expected "PREPARE"; SQL statement:
+puntos INT [42001-232]
+2025-11-06 11:51:24.708819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*])"
+Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-232]
+2025-11-06 11:51:24.711819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 11:51:24.714819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 11:51:24.715819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 11:51:24.717819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 11:51:24.719819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 11:51:24.765819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PILOTO1_ID" no encontrada
+Column "PILOTO1_ID" not found; SQL statement:
+UPDATE equipo SET piloto1_id = (SELECT id FROM piloto WHERE equipo_id = equipo.id ORDER BY id LIMIT 1) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.readTableColumn(Parser.java:963)
+	at org.h2.command.Parser.readUpdateSetClause(Parser.java:1050)
+	at org.h2.command.Parser.parseUpdate(Parser.java:1003)
+	at org.h2.command.Parser.parsePrepared(Parser.java:744)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:694)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:597)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:186)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+2025-11-06 11:51:24.768819+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PILOTO2_ID" no encontrada
+Column "PILOTO2_ID" not found; SQL statement:
+UPDATE equipo SET piloto2_id = (SELECT id FROM piloto WHERE equipo_id = equipo.id ORDER BY id LIMIT 1 OFFSET 1) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.readTableColumn(Parser.java:963)
+	at org.h2.command.Parser.readUpdateSetClause(Parser.java:1050)
+	at org.h2.command.Parser.parseUpdate(Parser.java:1003)
+	at org.h2.command.Parser.parsePrepared(Parser.java:744)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:694)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:597)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:186)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+2025-11-06 11:52:27.587363+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS equipo ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS equipo ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS equipo ( [42001-232]
+2025-11-06 11:52:27.596362+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; expected "INSERT"; SQL statement:
+id BIGINT PRIMARY KEY AUTO_INCREMENT, [42001-232]
+2025-11-06 11:52:27.597361+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]dinero DOUBLE,"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]dinero DOUBLE,"; expected "DELETE, DROP"; SQL statement:
+dinero DOUBLE, [42001-232]
+2025-11-06 11:52:27.600362+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]patrocinador VARCHAR(150),"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]patrocinador VARCHAR(150),"; expected "PREPARE"; SQL statement:
+patrocinador VARCHAR(150), [42001-232]
+2025-11-06 11:52:27.602361+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]puntos INT"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]puntos INT"; expected "PREPARE"; SQL statement:
+puntos INT [42001-232]
+2025-11-06 11:52:27.603362+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*])"
+Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-232]
+2025-11-06 11:52:27.606362+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 11:52:27.609364+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 11:52:27.611362+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 11:52:27.613363+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 11:52:27.615365+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 11:52:27.689364+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PILOTO_ID" no encontrada
+Column "PILOTO_ID" not found; SQL statement:
+UPDATE piloto SET equipo_id = (SELECT id FROM equipo WHERE piloto_id = piloto.id LIMIT 1) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1235)
+	at org.h2.command.query.Query.prepare(Query.java:232)
+	at org.h2.expression.Subquery.optimize(Subquery.java:98)
+	at org.h2.command.dml.SetClauseList$SetSimple.mapAndOptimize(SetClauseList.java:409)
+	at org.h2.command.dml.SetClauseList.mapAndOptimize(SetClauseList.java:219)
+	at org.h2.command.dml.Update.doPrepare(Update.java:130)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:694)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:597)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:186)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+2025-11-06 11:53:55.362005+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS equipo ([*]"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS equipo ([*]"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS equipo ( [42001-232]
+2025-11-06 11:53:55.368973+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]id BIGINT PRIMARY KEY AUTO_INCREMENT,"; expected "INSERT"; SQL statement:
+id BIGINT PRIMARY KEY AUTO_INCREMENT, [42001-232]
+2025-11-06 11:53:55.369975+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]dinero DOUBLE,"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]dinero DOUBLE,"; expected "DELETE, DROP"; SQL statement:
+dinero DOUBLE, [42001-232]
+2025-11-06 11:53:55.371975+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]patrocinador VARCHAR(150),"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]patrocinador VARCHAR(150),"; expected "PREPARE"; SQL statement:
+patrocinador VARCHAR(150), [42001-232]
+2025-11-06 11:53:55.374974+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]puntos INT"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]puntos INT"; expected "PREPARE"; SQL statement:
+puntos INT [42001-232]
+2025-11-06 11:53:55.375999+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*])"
+Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-232]
+2025-11-06 11:53:55.378974+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 11:53:55.381976+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 11:53:55.383974+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 11:53:55.385978+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 11:53:55.387992+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 11:57:05.887282+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 11:57:05.896284+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 11:57:05.898281+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 11:57:05.899281+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 11:57:05.901287+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 12:01:06.371687+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (id, dinero, patrocinador, puntos) VALUES (1, 50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 12:01:06.380686+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (id, dinero, patrocinador, puntos) VALUES (2, 40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 12:01:06.381717+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (id, dinero, patrocinador, puntos) VALUES (3, 35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 12:01:06.383688+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (id, dinero, patrocinador, puntos) VALUES (4, 45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 12:01:06.385688+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (id, dinero, patrocinador, puntos) VALUES (5, 30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 12:05:25.108660+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Ducati Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (50000.0, 'Ducati Team', 0) [22018-232]
+2025-11-06 12:05:25.117628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Aprilia Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (40000.0, 'Aprilia Team', 0) [22018-232]
+2025-11-06 12:05:25.119678+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (35000.0, 'KTM Team', 0) [22018-232]
+2025-11-06 12:05:25.120660+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Yamaha Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (45000.0, 'Yamaha Team', 0) [22018-232]
+2025-11-06 12:05:25.122626+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Honda Team' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (dinero, patrocinador, puntos) VALUES (30000.0, 'Honda Team', 0) [22018-232]
+2025-11-06 12:05:25.124661+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Francesco Bagnaia', NULL, 3, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.126631+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Marc Marquez', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.127638+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Jorge Martin', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.128676+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Marco Bezzecchi', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.130628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "KTM Team"
+Data conversion error converting "KTM Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Pedro Acosta', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'KTM Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.131665+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "KTM Team"
+Data conversion error converting "KTM Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Brad Binder', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'KTM Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.133627+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Yamaha Team"
+Data conversion error converting "Yamaha Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Fabio Quartararo', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Yamaha Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.135664+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Yamaha Team"
+Data conversion error converting "Yamaha Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Alex Rins', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Yamaha Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.136628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Honda Team"
+Data conversion error converting "Honda Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Joan Mir', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Honda Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.138628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Honda Team"
+Data conversion error converting "Honda Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Luca Marini', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Honda Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.140676+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Alex Marquez', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.141626+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Fermin Aldeguer', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.142628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Fabio Di Giannantonio', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.144627+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Franco Morbidelli', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.145627+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Maverick Viñales', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.147676+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Ducati Team"
+Data conversion error converting "Ducati Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Enea Bastianini', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Ducati Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.148658+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Miguel Oliveira', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.149659+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "KTM Team"
+Data conversion error converting "KTM Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Jack Miller', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'KTM Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.150634+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Raul Fernandez', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.152628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Aprilia Team"
+Data conversion error converting "Aprilia Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Ai Ogura', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Aprilia Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.153660+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Honda Team"
+Data conversion error converting "Honda Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Johann Zarco', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Honda Team' LIMIT 1)) [22018-232]
+2025-11-06 12:05:25.154628+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Honda Team"
+Data conversion error converting "Honda Team"; SQL statement:
+INSERT INTO piloto (nombre, moto_id, num_carreras, dinero, puntos, equipo_id) VALUES ('Somkiat Chantra', NULL, 0, 0.0, 0, (SELECT id FROM equipo WHERE patrocinador = 'Honda Team' LIMIT 1)) [22018-232]
+2025-11-06 12:08:20.886516+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'DUCATI_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'DUCATI_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Ducati Factory', 50000.0, 'DUCATI_TEAM', 0) [22018-232]
+2025-11-06 12:08:20.894484+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'APRILIA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'APRILIA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Aprilia Racing', 40000.0, 'APRILIA_TEAM', 0) [22018-232]
+2025-11-06 12:08:20.896501+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'KTM_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'KTM_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('KTM Factory', 35000.0, 'KTM_TEAM', 0) [22018-232]
+2025-11-06 12:08:20.899486+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'YAMAHA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'YAMAHA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Yamaha Monster', 45000.0, 'YAMAHA_TEAM', 0) [22018-232]
+2025-11-06 12:08:20.900486+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'HONDA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'HONDA_TEAM' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Honda Repsol', 30000.0, 'HONDA_TEAM', 0) [22018-232]
+2025-11-06 12:10:33.169610+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Michelin' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Michelin' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Ducati Factory', 50000.0, 'Michelin', 0) [22018-232]
+2025-11-06 12:10:33.177597+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Red_Bull' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Red_Bull' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Aprilia Racing', 40000.0, 'Red_Bull', 0) [22018-232]
+2025-11-06 12:10:33.179561+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Qatar_Airways' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Qatar_Airways' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('KTM Factory', 35000.0, 'Qatar_Airways', 0) [22018-232]
+2025-11-06 12:10:33.181592+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Monster_Energy' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Monster_Energy' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Yamaha Monster', 45000.0, 'Monster_Energy', 0) [22018-232]
+2025-11-06 12:10:33.183563+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Repsol' (EQUIPO: ""PATROCINADOR"" TINYINT)"
+Data conversion error converting "'Repsol' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
+INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Honda Repsol', 30000.0, 'Repsol', 0) [22018-232]

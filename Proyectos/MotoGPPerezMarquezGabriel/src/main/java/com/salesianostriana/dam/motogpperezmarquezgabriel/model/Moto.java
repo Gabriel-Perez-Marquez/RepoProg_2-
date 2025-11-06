@@ -18,6 +18,9 @@ public class Moto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String marca;
+	private double cilindrada;
+	@Column(name = "tipo_motor")
+	private String tipoMotor;
 	@Column(name = "porcent_desgaste")
 	private int porcentDesgaste;
 	@OneToOne

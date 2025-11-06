@@ -19,13 +19,15 @@
                         
                         <div class="mb-4">
                             <p class="mb-2"><strong>Carreras:</strong> <span class="badge bg-secondary" th:text="${piloto.num_carreras}">0</span></p>
-                            <p class="mb-2"><strong>Equipo:</strong> <span class="text-muted" th:text="${piloto.equipo}">Equipo</span></p>
+                            <p class="mb-2"><strong>Equipo:</strong> <span class="text-muted" th:text="${piloto.equipo.nombre}">Equipo</span></p>
                         </div>
                         
                         <div class="alert alert-info" th:if="${piloto.moto != null}">
                             <h3 class="h5 mb-3">Información de la Moto</h3>
-                            <p class="mb-2"><strong>Nombre:</strong> <span th:text="${piloto.moto.nombre}">Nombre Moto</span></p>
+                            <p class="mb-2"><strong>Nombre:</strong> <span th:text="${piloto.moto.marca}">Marca Moto</span></p>
                             <p class="mb-0"><strong>Cilindrada:</strong> <span th:text="${piloto.moto.cilindrada}">0</span> cc</p>
+                            <p class="mb-0"><strong>Tipo motor:</strong> <span th:text="${piloto.moto.tipoMotor}">0</span></p>
+                            <p class="mb-0"><strong>Porcentaje Desgaste:</strong> <span th:text="${piloto.moto.porcentDesgaste}">0</span> %</p>
                         </div>
                         
                         <div class="d-flex gap-2 justify-content-between mt-4">

@@ -3,6 +3,8 @@ package com.salesianostriana.dam.motogpperezmarquezgabriel.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,7 +20,9 @@ public class Equipo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String nombre;
 	private double dinero;
+	@Enumerated(EnumType.STRING)
 	private Patrocinadores patrocinador;
 	@OneToMany
 	private List<Piloto> pilotos;
