@@ -1,9 +1,11 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -21,6 +23,7 @@ public class Piloto {
 	@OneToOne
 	private Moto moto;
 	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_piloto_equipo"))
 	private Equipo equipo;
 	private int num_carreras;
 	private double dinero;

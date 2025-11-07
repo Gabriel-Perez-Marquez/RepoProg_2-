@@ -3,6 +3,7 @@ package com.salesianostriana.dam.motogpperezmarquezgabriel.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,9 +21,9 @@ public class Clasificacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
-	@OneToMany
+	@OneToMany(mappedBy = "clasificacion",fetch = FetchType.EAGER)
 	private List<Equipo> equipos;
-	@OneToMany
+	@OneToMany(mappedBy = "clasificacion",fetch = FetchType.EAGER)
 	private List<Carrera> carreras;
 	
 	

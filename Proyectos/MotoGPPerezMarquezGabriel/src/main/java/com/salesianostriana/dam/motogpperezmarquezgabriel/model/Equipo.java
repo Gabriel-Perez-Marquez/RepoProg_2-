@@ -5,9 +5,13 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +30,10 @@ public class Equipo {
 	private Patrocinadores patrocinador;
 	@OneToMany
 	private List<Piloto> pilotos;
+	@ManyToMany
+	private List<Carrera> carreras;
+	@ManyToOne
+	private Clasificacion clasificacion;
 	private int puntos;
 
 }
