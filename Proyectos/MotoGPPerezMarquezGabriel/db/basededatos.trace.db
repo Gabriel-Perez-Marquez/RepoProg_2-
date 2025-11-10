@@ -8962,3 +8962,199 @@ INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Yamaha Monste
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'Repsol' (EQUIPO: ""PATROCINADOR"" TINYINT)"
 Data conversion error converting "'Repsol' (EQUIPO: ""PATROCINADOR"" TINYINT)"; SQL statement:
 INSERT INTO equipo (nombre, dinero, patrocinador, puntos) VALUES ('Honda Repsol', 30000.0, 'Repsol', 0) [22018-232]
+2025-11-10 11:57:01.095127+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.114125+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.116134+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.118127+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.120129+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.123127+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.125127+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.127128+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.129128+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 11:57:01.130127+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 12:05:08.841033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.857063+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.859033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.861048+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.863034+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.866036+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.868032+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.870034+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.872051+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.875034+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO moto (marca, cilindrada, tipo_motor, porcent_desgaste, piloto_id) [42001-232]
+2025-11-10 12:05:08.884033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 12:05:08.887033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "VALUES[*]"; se esperaba "ROW (, (, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "VALUES[*]"; expected "ROW (, (, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+VALUES [42001-232]
+2025-11-10 12:05:08.888033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Losail International Circuit', '2025-03-10', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Losail International Circuit', '2025-03-10', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Losail International Circuit', '2025-03-10', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.889033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.890033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit of the Americas', '2025-04-07', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit of the Americas', '2025-04-07', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit of the Americas', '2025-04-07', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.891033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.892033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Le Mans', '2025-05-05', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Le Mans', '2025-05-05', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Le Mans', '2025-05-05', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.893033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Mugello Circuit', '2025-05-19', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Mugello Circuit', '2025-05-19', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Mugello Circuit', '2025-05-19', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.894033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'TT Circuit Assen', '2025-06-09', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'TT Circuit Assen', '2025-06-09', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('TT Circuit Assen', '2025-06-09', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.895033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Silverstone Circuit', '2025-07-07', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Silverstone Circuit', '2025-07-07', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Silverstone Circuit', '2025-07-07', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.896034+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Red Bull Ring', '2025-08-04', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Red Bull Ring', '2025-08-04', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Red Bull Ring', '2025-08-04', NULL, FALSE), [42001-232]
+2025-11-10 12:05:08.897032+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE) [42001-232]
+2025-11-10 12:05:08.898033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera_equipos (carrera_id, equipos_id)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera_equipos (carrera_id, equipos_id)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera_equipos (carrera_id, equipos_id) [42001-232]
+2025-11-10 12:05:08.902038+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "UPDATE carrera[*]"; se esperaba "., AS, SET"
+Syntax error in SQL statement "UPDATE carrera[*]"; expected "., AS, SET"; SQL statement:
+UPDATE carrera [42001-232]
+2025-11-10 12:05:08.904049+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SET [*]clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1)"; se esperaba "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"
+Syntax error in SQL statement "SET [*]clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1)"; expected "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"; SQL statement:
+SET clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1) [42001-232]
+2025-11-10 12:05:08.905033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "UPDATE equipo[*]"; se esperaba "., AS, SET"
+Syntax error in SQL statement "UPDATE equipo[*]"; expected "., AS, SET"; SQL statement:
+UPDATE equipo [42001-232]
+2025-11-10 12:05:08.906033+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SET [*]clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1)"; se esperaba "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"
+Syntax error in SQL statement "SET [*]clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1)"; expected "@, AUTOCOMMIT, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, DATABASE, COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, SCHEMA, CATALOG, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, IGNORE_CATALOGS, SESSION, TRANSACTION, TIME, NON_KEYWORDS, DEFAULT_NULL_ORDERING"; SQL statement:
+SET clasificacion_id = (SELECT id FROM clasificacion WHERE nombre = 'Temporada MotoGP 2025' LIMIT 1) [42001-232]
+2025-11-10 12:19:23.629085+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; se esperaba "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada)[*]"; expected "OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO carrera (nombre_circuito, fecha, clasificacion_id, jugada) [42001-232]
+2025-11-10 12:19:23.638086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "VALUES[*]"; se esperaba "ROW (, (, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "VALUES[*]"; expected "ROW (, (, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+VALUES [42001-232]
+2025-11-10 12:19:23.639086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Losail International Circuit', '2025-03-10', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Losail International Circuit', '2025-03-10', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Losail International Circuit', '2025-03-10', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.641087+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Autódromo Termas de Río Hondo', '2025-03-24', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.642086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit of the Americas', '2025-04-07', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit of the Americas', '2025-04-07', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit of the Americas', '2025-04-07', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.644087+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit de Jerez - Ángel Nieto', '2025-04-21', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.645085+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Le Mans', '2025-05-05', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Le Mans', '2025-05-05', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Le Mans', '2025-05-05', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.647100+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Mugello Circuit', '2025-05-19', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Mugello Circuit', '2025-05-19', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Mugello Circuit', '2025-05-19', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.649086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'TT Circuit Assen', '2025-06-09', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'TT Circuit Assen', '2025-06-09', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('TT Circuit Assen', '2025-06-09', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.649086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Silverstone Circuit', '2025-07-07', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Silverstone Circuit', '2025-07-07', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Silverstone Circuit', '2025-07-07', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.650086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Red Bull Ring', '2025-08-04', NULL, FALSE),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Red Bull Ring', '2025-08-04', NULL, FALSE),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Red Bull Ring', '2025-08-04', NULL, FALSE), [42001-232]
+2025-11-10 12:19:23.652086+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]'Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]'Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+('Circuit Ricardo Tormo', '2025-11-16', NULL, FALSE) [42001-232]

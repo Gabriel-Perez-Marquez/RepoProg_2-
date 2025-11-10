@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP - Agregar Equipo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #0f0f0f;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-wrapper {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Header stripes -->
+        <div class="bg-warning" style="height: 3px;"></div>
+        <div class="bg-danger" style="height: 2px;"></div>
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3" href="/">
+                    <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pilotos">Pilotos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-warning" href="/equipos">Equipos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/carreras">Carreras</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container py-4">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <a href="/equipos" class="btn btn-outline-warning mb-3">
+                        ← Volver a Equipos
+                    </a>
+                    <h1 class="display-5 fw-bold mb-2">
+                        <span class="text-warning">AGREGAR</span> <span class="text-danger">EQUIPO</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card bg-black text-white border-0 shadow-lg position-relative overflow-hidden">
+                        <!-- Efecto de fondo con gradiente -->
+                        <div class="position-absolute w-100 h-100" 
+                             style="background: linear-gradient(135deg, rgba(220,53,69,0.1) 0%, rgba(255,193,7,0.1) 100%); z-index: 0;"></div>
+                        
+                        <!-- Borde superior decorativo -->
+                        <div class="position-absolute top-0 w-100" style="height: 4px; background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%); z-index: 1;"></div>
+                        
+                        <div class="position-relative p-4" style="z-index: 2;">
+                            <form th:object="${equipo}" th:action="@{/equipos/save}" method="post">
+                                <input th:if="${equipo.id != null}" type="text" th:value="*{equipo.id}" hidden>
+                                
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label text-warning fw-bold">Nombre del Equipo</label>
+                                    <input type="text" class="form-control bg-dark text-white border-warning" 
+                                           id="nombre" name="nombre" placeholder="Nombre del equipo" required>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="dinero" class="form-label text-warning fw-bold">Presupuesto (€)</label>
+                                        <input type="number" class="form-control bg-dark text-white border-warning" 
+                                               id="dinero" name="dinero" placeholder="0.00" min="0" step="0.01">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="puntos" class="form-label text-warning fw-bold">Puntos</label>
+                                        <input type="number" class="form-control bg-dark text-white border-warning" 
+                                               id="puntos" name="puntos" min="0" placeholder="0">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="patrocinador" class="form-label text-warning fw-bold">Patrocinador</label>
+                                    <select class="form-select bg-dark text-white border-warning" id="patrocinador" name="patrocinador" required>
+                                        <option value="" selected>Selecciona un patrocinador</option>
+                                        <option th:each="p : ${T(com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores).values()}"
+                                                th:value="${p}" th:text="${p}"></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="piloto1" class="form-label text-warning fw-bold">Piloto 1</label>
+                                    <select class="form-select bg-dark text-white border-warning" 
+                                            id="piloto1" name="pilotos">
+                                        <option value="">Selecciona un piloto</option>
+                                        <option th:each="piloto : ${pilotos}" 
+                                                th:value="${piloto.id}" 
+                                                th:text="${piloto.nombre}"></option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="piloto2" class="form-label text-warning fw-bold">Piloto 2</label>
+                                    <select class="form-select bg-dark text-white border-warning" 
+                                            id="piloto2" name="pilotos">
+                                        <option value="">Selecciona un piloto</option>
+                                        <option th:each="piloto : ${pilotos}" 
+                                                th:value="${piloto.id}" 
+                                                th:text="${piloto.nombre}"></option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="carreras" class="form-label text-warning fw-bold">Carreras</label>
+                                    <select class="form-select bg-dark text-white border-warning" 
+                                            id="carreras" name="carreras" multiple size="4">
+                                        <option th:each="carrera : ${carreras}" 
+                                                th:value="${carrera.id}" 
+                                                th:text="${carrera.nombreCircuito}"></option>
+                                    </select>
+                                    <small class="form-text text-white">Mantén Ctrl para seleccionar varias carreras.</small>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="clasificacion" class="form-label text-warning fw-bold">Clasificación</label>
+                                    <select class="form-select bg-dark text-white border-warning" 
+                                            id="clasificacion" name="clasificacion">
+                                        <option value="">Selecciona una clasificación</option>
+                                        <option th:each="clasificacion : ${clasificaciones}" 
+                                                th:value="${clasificacion.id}" 
+                                                th:text="${clasificacion.nombre}"></option>
+                                    </select>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold">
+                                             Guardar Equipo
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="reset" class="btn btn-outline-warning w-100 py-2 fw-bold">
+                                             Limpiar Formulario
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-3 border-top border-warning">
+        <div class="container text-center">
+            <p class="mb-0">
+                <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span> 
+                &copy; 2025 - Todos los derechos reservados
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
