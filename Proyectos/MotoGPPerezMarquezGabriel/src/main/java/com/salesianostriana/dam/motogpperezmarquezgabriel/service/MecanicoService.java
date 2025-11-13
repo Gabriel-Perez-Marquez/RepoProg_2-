@@ -8,5 +8,8 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServi
 
 @Service
 public class MecanicoService extends BaseServiceImp<Mecanico, Long, MecanicoRepository> {
+	
+	
+//	public String 
 
 }

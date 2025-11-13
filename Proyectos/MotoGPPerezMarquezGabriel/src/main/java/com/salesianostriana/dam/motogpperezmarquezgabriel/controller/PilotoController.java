@@ -17,7 +17,7 @@ public class PilotoController {
 	
 	@GetMapping("/pilotos")
 	public String mostrarPilotos (Model model) {
-		model.addAttribute("pilotos", pilotoService.buscarTodos());
+		model.addAttribute("pilotos", pilotoService.findAll());
 		
 		return "pilotos";
 		
@@ -26,7 +26,7 @@ public class PilotoController {
 	@GetMapping("/pilotos/{id}")
 	public String mostrarDetallesPiloto(@PathVariable Long id, Model model) {
 		
-		model.addAttribute("piloto", pilotoService.buscarPorID(id).orElse(null));
+		model.addAttribute("piloto", pilotoService.findById(id).orElse(null));
 		
 		return "mostrarDetallesPil";
 	}
