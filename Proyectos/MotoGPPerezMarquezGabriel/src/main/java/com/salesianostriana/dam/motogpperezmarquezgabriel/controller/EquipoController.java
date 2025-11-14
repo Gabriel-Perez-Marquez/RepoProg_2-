@@ -59,10 +59,14 @@ public class EquipoController {
     @GetMapping("/equipos/edit/{id}")
     public String editarEquipo(@PathVariable Long id, Model model) {
         Optional<Equipo> opt = equipoService.findById(id);
+        Equipo e;
         if (opt.isEmpty()) {
             return "redirect:/equipos";
+        } else {
+        	e = opt.get();
         }
-        model.addAttribute("equipo", opt.get());
+        
+        model.addAttribute("equipo", e);
         model.addAttribute("pilotos", pilotoService.findAll());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());

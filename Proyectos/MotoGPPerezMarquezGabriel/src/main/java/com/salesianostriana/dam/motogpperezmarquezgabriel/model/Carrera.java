@@ -9,10 +9,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -24,8 +24,10 @@ public class Carrera {
 	private String nombreCircuito;
 	private LocalDate fecha;
 	@ManyToMany
+	@ToString.Exclude
 	private List<Equipo> equipos;
 	@ManyToOne
+	@ToString.Exclude
 	private Clasificacion clasificacion;
 	private boolean jugada;
 
