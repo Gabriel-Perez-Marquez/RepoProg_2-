@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <!-- Clasificación (ManyToOne) -->
+                            <!-- Clasificación -->
                             <div class="mb-3">
                                 <label for="clasificacionId" class="form-label text-warning fw-bold">Clasificación</label>
                                 <select name="clasificacionId" id="clasificacionId"
@@ -88,7 +88,7 @@
                                 </select>
                             </div>
 
-                            <!-- Patrocinador (Enum) -->
+                            <!-- Patrocinador -->
                             <div class="mb-3">
                                 <label for="patrocinador" class="form-label text-warning fw-bold">Patrocinador</label>
                                 <select th:field="*{patrocinador}" id="patrocinador"
@@ -101,11 +101,12 @@
                                 </select>
                             </div>
 
-                            <!-- Carreras (ManyToMany) -->
+                            <!-- Carreras -->
                             <div class="mb-3">
                                 <label for="carrerasIds" class="form-label text-warning fw-bold">Carreras</label>
                                 <select name="carrerasIds" id="carrerasIds" multiple size="6"
-                                        class="form-select bg-dark text-white border-warning">
+                                        class="form-select bg-dark text-white border-warning"
+                                        th:field="*{carreras}">
                                     <option th:each="c : ${carreras}"
                                             th:value="${c.id}"
                                             th:text="${c.nombreCircuito}"
@@ -115,7 +116,7 @@
                                 <small class="text-secondary">Mantén Ctrl/Cmd para seleccionar varias.</small>
                             </div>
 
-                            <!-- Pilotos (OneToMany; dueño en Piloto.equipo) -->
+                            <!-- Pilotos -->
                             <div class="mb-3">
                                 <label for="pilotosIds" class="form-label text-warning fw-bold">Pilotos</label>
                                 <select name="pilotosIds" id="pilotosIds" multiple size="6"

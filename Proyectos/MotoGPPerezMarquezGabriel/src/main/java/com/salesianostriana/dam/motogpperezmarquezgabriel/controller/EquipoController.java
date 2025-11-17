@@ -73,4 +73,13 @@ public class EquipoController {
         model.addAttribute("clasificaciones", clasificacionService.findAll());
         return "equipos/agregarEquipo";
     }
+    
+    @GetMapping("/equipos/{id}")
+    public String mostrarDetallesEquipo(@PathVariable Long id, Model model) {
+    	
+    	model.addAttribute("equipo", equipoService.findById(id).orElse(null));
+    	
+    	return "equipos/mostrarDetallesEquipo";
+    	
+    }
 }
