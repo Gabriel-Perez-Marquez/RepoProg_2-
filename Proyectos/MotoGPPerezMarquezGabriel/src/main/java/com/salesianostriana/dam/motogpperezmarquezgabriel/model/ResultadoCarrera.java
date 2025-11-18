@@ -6,19 +6,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Mecanico {
+@Builder
+public class ResultadoCarrera {
 
-	@Id
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nombre;
-	private double cuota;
+
+    private int posicion;
     
+    private int puntosObtenidos;
+
     @ManyToOne
-    private Equipo equipo;
+    private Carrera carrera;
+
+    @ManyToOne
+    private Piloto piloto;
+    
+    public ResultadoCarrera(int posicion, int puntosObtenidos, Carrera carrera, Piloto piloto) {
+        this.posicion = posicion;
+        this.puntosObtenidos = puntosObtenidos;
+        this.carrera = carrera;
+        this.piloto = piloto;
+    }
 }

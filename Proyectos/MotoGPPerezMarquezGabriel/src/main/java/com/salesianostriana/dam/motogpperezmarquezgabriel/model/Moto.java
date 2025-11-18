@@ -1,13 +1,10 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +22,4 @@ public class Moto {
 	private String tipoMotor;
 	@Column(name = "porcent_desgaste")
 	private int porcentDesgaste;
-	@OneToMany
-	private List<Piloto> piloto;
 }

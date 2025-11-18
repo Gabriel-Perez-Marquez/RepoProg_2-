@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.ClasificacionService;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.EquipoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
 
@@ -30,7 +30,7 @@ public class EquipoController {
     private CarreraService carreraService;
 
     @Autowired
-    private ClasificacionService clasificacionService;
+    private TemporadaService temporadaService;
 
     @GetMapping("/equipos")
     public String mostrarEquipos(Model model) {
@@ -45,7 +45,7 @@ public class EquipoController {
         model.addAttribute("pilotos", pilotoService.findAll());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
-        model.addAttribute("clasificaciones", clasificacionService.findAll());
+        model.addAttribute("temporadas", temporadaService.findAll());
         return "equipos/agregarEquipo";
     }
 
@@ -70,7 +70,7 @@ public class EquipoController {
         model.addAttribute("pilotos", pilotoService.findAll());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
-        model.addAttribute("clasificaciones", clasificacionService.findAll());
+        model.addAttribute("temporadas", temporadaService.findAll());
         return "equipos/agregarEquipo";
     }
     

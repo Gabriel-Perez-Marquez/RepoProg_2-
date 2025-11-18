@@ -9845,3 +9845,187 @@ UPDATE piloto SET moto_id = (SELECT id FROM moto WHERE piloto_id = piloto.id LIM
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.salesianostriana.dam.motogpperezmarquezgabriel.MotoGpPerezMarquezGabrielApplication.main(MotoGpPerezMarquezGabrielApplication.java:10)
+2025-11-18 17:39:48.712840+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:39:48.715854+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25), [42001-232]
+2025-11-18 17:39:48.716279+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20), [42001-232]
+2025-11-18 17:39:48.716714+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16), [42001-232]
+2025-11-18 17:39:48.717075+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13), [42001-232]
+2025-11-18 17:39:48.717437+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11), [42001-232]
+2025-11-18 17:39:48.717760+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10), [42001-232]
+2025-11-18 17:39:48.718099+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9), [42001-232]
+2025-11-18 17:39:48.718428+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8), [42001-232]
+2025-11-18 17:39:48.718734+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7), [42001-232]
+2025-11-18 17:39:48.719032+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6), [42001-232]
+2025-11-18 17:39:48.719603+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5), [42001-232]
+2025-11-18 17:39:48.719911+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4), [42001-232]
+2025-11-18 17:39:48.720207+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3), [42001-232]
+2025-11-18 17:39:48.720681+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2),"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2),"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2), [42001-232]
+2025-11-18 17:39:48.721021+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1) [42001-232]
+2025-11-18 17:41:37.468583+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.471606+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Francesco Bagnaia'), 1, 25) [42001-232]
+2025-11-18 17:41:37.472076+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.472492+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Brad Binder'), 2, 20) [42001-232]
+2025-11-18 17:41:37.472841+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.473194+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Jorge Martin'), 3, 16) [42001-232]
+2025-11-18 17:41:37.473527+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.473854+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Marc Marquez'), 4, 13) [42001-232]
+2025-11-18 17:41:37.474165+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.474477+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Enea Bastianini'), 5, 11) [42001-232]
+2025-11-18 17:41:37.474872+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.475491+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Alex Marquez'), 6, 10) [42001-232]
+2025-11-18 17:41:37.475838+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.476257+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Fabio Di Giannantonio'), 7, 9) [42001-232]
+2025-11-18 17:41:37.476626+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.477251+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Maverick Viñales'), 8, 8) [42001-232]
+2025-11-18 17:41:37.477586+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.477873+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Pedro Acosta'), 9, 7) [42001-232]
+2025-11-18 17:41:37.478148+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.478461+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Fabio Quartararo'), 10, 6) [42001-232]
+2025-11-18 17:41:37.478723+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.478996+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Miguel Oliveira'), 11, 5) [42001-232]
+2025-11-18 17:41:37.479258+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.479538+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Marco Bezzecchi'), 12, 4) [42001-232]
+2025-11-18 17:41:37.479825+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.480326+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Joan Mir'), 13, 3) [42001-232]
+2025-11-18 17:41:37.480618+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.480879+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Johann Zarco'), 14, 2) [42001-232]
+2025-11-18 17:41:37.481173+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO resultado_carrera (carrera_id, piloto_id, posicion, puntos_obtenidos) VALUES [42001-232]
+2025-11-18 17:41:37.481471+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1)"; se esperaba "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"
+Syntax error in SQL statement "((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit')[*], (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1)"; expected "INTERSECT, UNION, EXCEPT, ORDER BY, OFFSET, FETCH, FOR, )"; SQL statement:
+((SELECT id FROM carrera WHERE nombre_circuito='Losail International Circuit'), (SELECT id FROM piloto WHERE nombre='Jack Miller'), 15, 1) [42001-232]

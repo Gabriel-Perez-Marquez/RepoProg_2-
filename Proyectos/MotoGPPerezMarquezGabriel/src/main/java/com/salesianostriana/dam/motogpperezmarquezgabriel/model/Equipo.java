@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.model;
 
 import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,17 +24,21 @@ public class Equipo {
 	private Long id;
 	private String nombre;
 	private double dinero;
-	@Enumerated(EnumType.STRING)
+	
+    @Enumerated(EnumType.STRING)
 	private Patrocinadores patrocinador;
-	@OneToMany
+    
+	@OneToMany(mappedBy = "equipo") 
 	@ToString.Exclude
 	private List<Piloto> pilotos;
+    
 	@ManyToMany
 	@ToString.Exclude
 	private List<Carrera> carreras;
-	@ManyToOne
+    
+	@ManyToOne 
 	@ToString.Exclude
-	private Clasificacion clasificacion;
-	private int puntos;
-
+	private Temporada temporada;
+	
+	private int totalPuntos;
 }

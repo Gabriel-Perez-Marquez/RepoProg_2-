@@ -51,10 +51,8 @@
 
                     <div class="position-relative p-4" style="z-index: 2;">
                         <form th:object="${equipo}" th:action="@{/equipos/save}" method="post">
-                            <!-- ID oculto para edición -->
                             <input type="hidden" th:field="*{id}"/>
 
-                            <!-- Datos básicos -->
                             <div class="mb-3">
                                 <label for="nombre" class="form-label text-warning fw-bold">Nombre del Equipo</label>
                                 <input th:field="*{nombre}" type="text" class="form-control bg-dark text-white border-warning"
@@ -62,33 +60,25 @@
                             </div>
 
                             <div class="row mb-3">
-                                <div class="col-md-6">
+                                <div class="col-12">
                                     <label for="dinero" class="form-label text-warning fw-bold">Presupuesto (€)</label>
                                     <input th:field="*{dinero}" type="number" step="0.01" min="0"
                                            class="form-control bg-dark text-white border-warning" id="dinero" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="puntos" class="form-label text-warning fw-bold">Puntos</label>
-                                    <input th:field="*{puntos}" type="number" min="0"
-                                           class="form-control bg-dark text-white border-warning" id="puntos">
-                                </div>
                             </div>
 
-                            <!-- Clasificación -->
                             <div class="mb-3">
-                                <label for="clasificacionId" class="form-label text-warning fw-bold">Clasificación</label>
-                                <select name="clasificacionId" id="clasificacionId"
-                                        class="form-select bg-dark text-white border-warning" th:field="*{clasificacion}">
-                                    <option value="" th:selected="${equipo.clasificacion == null}">-- Sin clasificación --</option>
-                                    <option th:each="c : ${clasificaciones}"
-                                            th:value="${c.id}"
-                                            th:text="${c.nombre}"
-                                            th:selected="${equipo.clasificacion != null and equipo.clasificacion.id == c.id}">
+                                <label for="temporada" class="form-label text-warning fw-bold">Temporada</label>
+                                <select id="temporada"
+                                        class="form-select bg-dark text-white border-warning" th:field="*{temporada}">
+                                    <option value="">-- Sin Temporada --</option>
+                                    <option th:each="t : ${temporadas}"
+                                            th:value="${t.id}"
+                                            th:text="${t.nombre}">
                                     </option>
                                 </select>
                             </div>
 
-                            <!-- Patrocinador -->
                             <div class="mb-3">
                                 <label for="patrocinador" class="form-label text-warning fw-bold">Patrocinador</label>
                                 <select th:field="*{patrocinador}" id="patrocinador"
@@ -101,31 +91,27 @@
                                 </select>
                             </div>
 
-                            <!-- Carreras -->
                             <div class="mb-3">
-                                <label for="carrerasIds" class="form-label text-warning fw-bold">Carreras</label>
-                                <select name="carrerasIds" id="carrerasIds" multiple size="6"
+                                <label for="carreras" class="form-label text-warning fw-bold">Carreras</label>
+                                <select id="carreras" multiple size="6"
                                         class="form-select bg-dark text-white border-warning"
                                         th:field="*{carreras}">
                                     <option th:each="c : ${carreras}"
                                             th:value="${c.id}"
-                                            th:text="${c.nombreCircuito}"
-                                            th:selected="${equipo.carreras != null and equipo.carreras.contains(c)}">
+                                            th:text="${c.nombreCircuito}">
                                     </option>
                                 </select>
                                 <small class="text-secondary">Mantén Ctrl/Cmd para seleccionar varias.</small>
                             </div>
 
-                            <!-- Pilotos -->
                             <div class="mb-3">
-                                <label for="pilotosIds" class="form-label text-warning fw-bold">Pilotos</label>
-                                <select name="pilotosIds" id="pilotosIds" multiple size="6"
+                                <label for="pilotos" class="form-label text-warning fw-bold">Pilotos</label>
+                                <select id="pilotos" multiple size="6"
                                         class="form-select bg-dark text-white border-warning"
                                         th:field="*{pilotos}">
                                     <option th:each="p : ${pilotos}"
                                             th:value="${p.id}"
-                                            th:text="${p.nombre}"
-                                            th:selected="${equipo.pilotos != null and equipo.pilotos.contains(p)}">
+                                            th:text="${p.nombre}">
                                     </option>
                                 </select>
                                 <small class="text-secondary">Mantén Ctrl/Cmd para seleccionar varias.</small>

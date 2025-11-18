@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoGP - Clasificación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+      }
+      .table {
+        --bs-table-bg: #1a1a1a;
+        --bs-table-border-color: #444;
+        --bs-table-hover-bg: #2a2a2a;
+      }
+    </style>
+  </head>
+  <body class="text-light">
+    <!-- Header stripes -->
+    <div class="bg-warning" style="height: 3px"></div>
+    <div class="bg-danger" style="height: 2px"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pilotos">Pilotos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/equipos">Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/carreras">Carreras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-warning" href="/temporadas">Temporadas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+      <!-- Page Header -->
+      <div class="row mb-5">
+        <div class="col-12">
+            <!-- Botón para volver al hub de temporadas -->
+            <a href="/clasificacion" class="btn btn-outline-warning mb-3">← Volver a Temporadas</a>
+            <h1 class="display-3 fw-bold mb-3">
+                <span class="text-warning">TEMPORADA</span>
+                <!-- Título dinámico de la temporada -->
+                <span class="text-danger" th:text="${temporada.nombre}">2025</span>
+            </h1>
+            <p class="lead text-light">Clasificación de pilotos y equipos de la temporada.</p>
+        </div>
+      </div>
+
+      <!-- Clasificaciones -->
+      <div class="row g-5">
+        
+        <!-- Columna Clasificación Pilotos -->
+        <div class="col-lg-7" th:if="${pilotos != null and !#lists.isEmpty(pilotos)}">
+            <h3 class="fw-bold mb-3">
+                <span class="text-warning">PILOTOS</span>
+            </h3>
+            <div class="table-responsive shadow-lg">
+                <table class="table table-dark table-hover align-middle border border-warning">
+                    <thead class="table-dark" style="--bs-table-bg: #000;">
+                        <tr>
+                            <th scope="col" class="text-warning" style="width: 10%;">Pos.</th>
+                            <th scope="col" class="text-warning">Piloto</th>
+                            <th scope="col" class="text-warning">Equipo</th>
+                            <th scope="col" class="text-warning" style="width: 15%;">Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop de Pilotos -->
+                        <tr th:each="piloto, iter : ${pilotos}">
+                            <td class="fw-bold fs-5" th:text="${iter.count}">1</td>
+                            <td>
+                                <a th:href="@{/pilotos/{id}(id=${piloto.id})}" class="text-white text-decoration-none" th:text="${piloto.nombre}">
+                                    Nombre Piloto
+                                </a>
+                            </td>
+                            <td class="small" th:text="${piloto.equipo?.nombre}">Equipo</td>
+                            <td class="fw-bold fs-4 text-warning" th:text="${piloto.totalPuntos}">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Columna Clasificación Equipos -->
+        <div class="col-lg-5" th:if="${equipos != null and !#lists.isEmpty(equipos)}">
+            <h3 class="fw-bold mb-3">
+                <span class="text-danger">EQUIPOS</span>
+            </h3>
+            <div class="table-responsive shadow-lg">
+                <table class="table table-dark table-hover align-middle border border-danger">
+                    <thead class="table-dark" style="--bs-table-bg: #000;">
+                        <tr>
+                            <th scope="col" class="text-danger" style="width: 10%;">Pos.</th>
+                            <th scope="col" class="text-danger">Equipo</th>
+                            <th scope="col" class="text-danger" style="width: 15%;">Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop de Equipos -->
+                        <tr th:each="equipo, iter : ${equipos}">
+                            <td class="fw-bold fs-5" th:text="${iter.count}">1</td>
+                            <td>
+                                <a th:href="@{/equipos/{id}(id=${equipo.id})}" class="text-white text-decoration-none" th:text="${equipo.nombre}">
+                                    Nombre Equipo
+                                </a>
+                            </td>
+                            <td class="fw-bold fs-4 text-warning" th:text="${equipo.totalPuntos}">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Mensaje si no hay datos -->
+        <div class="row" th:if="${#lists.isEmpty(pilotos) and #lists.isEmpty(equipos)}">
+            <div class="col-12 text-center py-5">
+                <div class="alert alert-warning" role="alert">
+                    <h3 class="alert-heading">No hay datos de clasificación</h3>
+                    <p>Aún no se ha disputado ninguna carrera en esta temporada.</p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 mt-5 border-top border-warning">
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -88,20 +88,15 @@
                     <option th:each="e : ${equipos}" th:value="${e.id}" th:text="${e.nombre}"></option>
                   </select>
                 </div>
+                
+                <!-- ESTA ES LA SECCIÓN CORREGIDA -->
                 <div class="row mb-3">
-                  <div class="col-md-4">
-                    <label for="num_carreras" class="form-label text-warning fw-bold">Nº Carreras</label>
-                    <input type="number" class="form-control bg-dark text-white border-warning" id="num_carreras" th:field="*{num_carreras}" min="0" placeholder="0" required />
-                  </div>
-                  <div class="col-md-4">
+                  <div class="col-12">
                     <label for="dinero" class="form-label text-warning fw-bold">Dinero (€)</label>
                     <input type="number" class="form-control bg-dark text-white border-warning" id="dinero" th:field="*{dinero}" min="0" step="0.01" placeholder="0.00" required />
                   </div>
-                  <div class="col-md-4">
-                    <label for="puntos" class="form-label text-warning fw-bold">Puntos</label>
-                    <input type="number" class="form-control bg-dark text-white border-warning" id="puntos" th:field="*{puntos}" min="0" placeholder="0" required />
-                  </div>
                 </div>
+                
                 <div class="row g-2">
                   <div class="col-md-6">
                     <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Guardar Piloto</button>
