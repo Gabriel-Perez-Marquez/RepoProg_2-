@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoGP - Carreras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+      }
+      .accordion-button {
+        background-color: #1a1a1a;
+        color: #ffc107;
+        font-weight: bold;
+        border-bottom: 1px solid #444;
+      }
+      .accordion-button:not(.collapsed) {
+        background-color: #000;
+        color: #ffc107;
+        box-shadow: inset 0 -1px 0 #444;
+      }
+      .accordion-button:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+      }
+      .accordion-body {
+        background-color: #1a1a1a;
+      }
+      .list-group-item {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: #fff;
+      }
+      /* Estilos para el Modal Oscuro */
+      .modal-content {
+        background-color: #1a1a1a;
+        color: #fff;
+        border: 1px solid #ffc107;
+      }
+      .modal-header {
+        border-bottom: 1px solid #444;
+      }
+      .modal-footer {
+        border-top: 1px solid #444;
+      }
+      .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+    </style>
+  </head>
+  <body class="text-light">
+    <!-- Header stripes -->
+    <div class="bg-warning" style="height: 3px"></div>
+    <div class="bg-danger" style="height: 2px"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pilotos">Pilotos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/equipos">Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-warning" href="/carreras/">Carreras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clasificacion">Clasificación</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+      <!-- Page Header -->
+      <div class="row mb-5">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-center text-md-start">
+                    <h1 class="display-3 fw-bold mb-3">
+                        <span class="text-warning">CARRERAS</span>
+                        <span class="text-danger">CALENDARIO</span>
+                    </h1>
+                    <p class="lead text-light">Gestiona y juega las carreras de cada temporada.</p>
+                </div>
+                <div class="d-none d-md-block">
+                    <a href="/carreras/new" class="btn btn-success btn-lg fw-bold">
+                        <i class="bi bi-plus-circle"></i> Crear Carrera
+                    </a>
+                </div>
+            </div>
+            <div class="d-md-none text-center mt-3">
+                <a href="/carreras/new" class="btn btn-success btn-lg fw-bold">
+                   <i class="bi bi-plus-circle"></i> Crear Carrera
+                </a>
+            </div>
+        </div>
+      </div>
+
+      <div class="row" th:if="${param.error == 'NoSePuedeBorrar'}">
+        <div class="col-12">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> No se puede eliminar una carrera que ya ha sido jugada y tiene resultados.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acordeón de Temporadas -->
+      <div class="accordion" id="accordionTemporadas" th:if="${temporadas != null and !#lists.isEmpty(temporadas)}">
+        
+        <!-- Bucle de Temporadas -->
+        <div class="accordion-item border border-warning mb-3" th:each="temporada, iter : ${temporadas}">
+          <h2 class="accordion-header" th:id="'heading' + ${temporada.id}">
+            <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse" 
+                    th:data-bs-target="'#collapse' + ${temporada.id}" 
+                    th:aria-expanded="${iter.index == 0} ? 'true' : 'false'" 
+                    th:aria-controls="'collapse' + ${temporada.id}"
+                    th:text="${temporada.nombre}">
+              Nombre de la Temporada
+            </button>
+          </h2>
+          <div th:id="'collapse' + ${temporada.id}" 
+               class="accordion-collapse collapse" 
+               th:classappend="${iter.index == 0} ? 'show' : ''"
+               th:aria-labelledby="'heading' + ${temporada.id}" 
+               data-bs-parent="#accordionTemporadas">
+            <div class="accordion-body p-0">
+              
+              <!-- Lista de Carreras -->
+              <div class="list-group list-group-flush" th:if="${temporada.carreras != null and !#lists.isEmpty(temporada.carreras)}">
+                
+                <!-- Bucle de Carreras (anidado) -->
+                <div th:each="carrera : ${temporada.carreras}" class="list-group-item position-relative p-3">
+                  
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                      <div class="me-auto">
+                        <h5 class="mb-1 fw-bold" th:text="${carrera.nombreCircuito}">Nombre del Circuito</h5>
+                        <small th:text="${#temporals.format(carrera.fecha, 'dd MMMM yyyy')}">10 Marzo 2025</small>
+                      </div>
+                      <div class="mt-2 mt-md-0">
+                        
+                        <a th:if="${!carrera.jugada}" th:href="@{/carreras/jugar/{id}(id=${carrera.id})}" class="btn btn-success fw-bold me-2">
+                          🏁 Jugar
+                        </a>
+                        
+                        <a th:if="${carrera.jugada}" th:href="@{/carreras/resultados/{id}(id=${carrera.id})}" class="btn btn-outline-warning fw-bold me-2">
+                          🏆 Ver Resultados
+                        </a>
+                        
+                        <a th:href="@{/carreras/edit/{id}(id=${carrera.id})}" class="btn btn-outline-secondary btn-sm me-1">✏️</a>
+                        
+                        <button type="button" 
+                                class="btn btn-outline-danger btn-sm" 
+                                data-bs-toggle="modal" 
+                                th:data-bs-target="'#deleteModal-' + ${carrera.id}">
+                            🗑️
+                        </button>
+                      </div>
+                  </div>
+
+                  
+                  <div class="modal fade" th:id="'deleteModal-' + ${carrera.id}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content text-start">
+                            <div class="modal-header">
+                                <h5 class="modal-title fw-bold text-warning">Confirmar Eliminación</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estás seguro de que deseas eliminar la carrera de <strong class="text-warning" th:text="${carrera.nombreCircuito}">Circuito</strong> permanentemente?</p>
+                                <span class="text-danger small">Esta acción no se puede deshacer.</span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <a th:href="@{/carreras/delete/{id}(id=${carrera.id})}" class="btn btn-danger fw-bold">Sí, Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Fin del Modal -->
+
+                </div>
+              </div>
+
+              <!-- Si la temporada no tiene carreras -->
+              <div class="p-4 text-center text-secondary" th:if="${temporada.carreras == null or #lists.isEmpty(temporada.carreras)}">
+                No hay carreras programadas para esta temporada.
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensaje si no hay temporadas -->
+      <div class="row" th:if="${temporadas == null or #lists.isEmpty(temporadas)}">
+        <div class="col-12 text-center py-5">
+            <div class="alert alert-warning" role="alert">
+                <h3 class="alert-heading">No hay temporadas registradas</h3>
+                <p>Crea una nueva temporada y luego añade carreras para empezar.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 mt-5 border-top border-warning">
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,101 +1,126 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.service;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Carrera;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.ResultadoCarrera;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.CarreraRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.ResultadoCarreraRepository;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
 
 @Service
-public class ResultadoCarreraService {
+public class ResultadoCarreraService extends BaseServiceImp<ResultadoCarrera, Long, ResultadoCarreraRepository> {
 
 	@Autowired
-	private ResultadoCarreraRepository resultadoCarreraRepository;
-	
+	private CarreraService carreraService;
+
 	@Autowired
-	private CarreraRepository carreraRepository;
-	
+	private PilotoService pilotoService;
+
 	@Autowired
-	private PilotoService pilotoService; 
-	
-	
-	@Transactional
-	public void registrarResultados(Long idCarrera, List<ResultadoCarrera> resultadosInput) {
+	private EquipoService equipoService;
+
+	public void registrarResultados(Long carreraId, List<ResultadoCarrera> resultadosInput) {
 		
-		Carrera carrera = carreraRepository.findById(idCarrera)
-			.orElseThrow(() -> new RuntimeException("Carrera no encontrada"));
+		Carrera carrera = carreraService.findById(carreraId)
+				.orElseThrow(() -> new RuntimeException("Carrera no encontrada con ID: " + carreraId));
 
-		List<Long> idsPilotos = new ArrayList<>();
-		for(ResultadoCarrera r : resultadosInput) {
-			idsPilotos.add(r.getPiloto().getId());
+		if (carrera.isJugada()) {
+			return;
 		}
-		
-		List<Piloto> pilotosCompletos = pilotoService.findAllById(idsPilotos);
-		
-		List<ResultadoCarrera> nuevosResultados = new ArrayList<>();
 
-		for (ResultadoCarrera input : resultadosInput) {
+		for (ResultadoCarrera resultado : resultadosInput) {
 			
-			Piloto pilotoCompleto = null;
-			for(Piloto p : pilotosCompletos) {
-				if (p.getId().equals(input.getPiloto().getId())) {
-					pilotoCompleto = p;
-					break;
-				}
+			resultado.setCarrera(carrera);
+			
+			int puntos = calcularPuntos(resultado.getPosicion());
+			resultado.setPuntosObtenidos(puntos);
+			
+			this.save(resultado);
+
+			Piloto piloto = pilotoService.findById(resultado.getPiloto().getId())
+					.orElseThrow(() -> new RuntimeException("Piloto no encontrado"));
+
+			piloto.setTotalCarreras(piloto.getTotalCarreras() + 1);
+			piloto.setTotalPuntos(piloto.getTotalPuntos() + puntos);
+
+			if (resultado.getPosicion() == 1) {
+				piloto.setTotalVictorias(piloto.getTotalVictorias() + 1);
 			}
 			
-			if (pilotoCompleto != null) {
-				int posicion = input.getPosicion();
-				int puntosGanados = calcularPuntosPorPosicion(posicion);
-	
-				input.setCarrera(carrera);
-				input.setPiloto(pilotoCompleto);
-				input.setPuntosObtenidos(puntosGanados);
-				
-				nuevosResultados.add(input);
-				
-				pilotoCompleto.setTotalPuntos(pilotoCompleto.getTotalPuntos() + puntosGanados);
-				pilotoCompleto.setTotalCarreras(pilotoCompleto.getTotalCarreras() + 1);
-				if (posicion == 1) {
-					pilotoCompleto.setTotalVictorias(pilotoCompleto.getTotalVictorias() + 1);
-				}
-				if (posicion <= 3) {
-					pilotoCompleto.setTotalPodios(pilotoCompleto.getTotalPodios() + 1);
-				}
+			if (resultado.getPosicion() <= 3) {
+				piloto.setTotalPodios(piloto.getTotalPodios() + 1);
+			}
+			
+			pilotoService.save(piloto);
+
+			if (piloto.getEquipo() != null) {
+				Equipo equipo = piloto.getEquipo();
+				equipo.setTotalPuntos(equipo.getTotalPuntos() + puntos);
+				equipoService.save(equipo);
 			}
 		}
-		
-		resultadoCarreraRepository.saveAll(nuevosResultados);
-		
+
 		carrera.setJugada(true);
-		carreraRepository.save(carrera);
+		carreraService.save(carrera);
 	}
-	
-	private int calcularPuntosPorPosicion(int posicion) {
+
+	private int calcularPuntos(int posicion) {
+		int puntos = 0;
 		switch (posicion) {
-			case 1: return 25;
-			case 2: return 20;
-			case 3: return 16;
-			case 4: return 13;
-			case 5: return 11;
-			case 6: return 10;
-			case 7: return 9;
-			case 8: return 8;
-			case 9: return 7;
-			case 10: return 6;
-			case 11: return 5;
-			case 12: return 4;
-			case 13: return 3;
-			case 14: return 2;
-			case 15: return 1;
-			default: return 0;
+			case 1:
+				puntos = 25;
+				break;
+			case 2:
+				puntos = 20;
+				break;
+			case 3:
+				puntos = 16;
+				break;
+			case 4:
+				puntos = 13;
+				break;
+			case 5:
+				puntos = 11;
+				break;
+			case 6:
+				puntos = 10;
+				break;
+			case 7:
+				puntos = 9;
+				break;
+			case 8:
+				puntos = 8;
+				break;
+			case 9:
+				puntos = 7;
+				break;
+			case 10:
+				puntos = 6;
+				break;
+			case 11:
+				puntos = 5;
+				break;
+			case 12:
+				puntos = 4;
+				break;
+			case 13:
+				puntos = 3;
+				break;
+			case 14:
+				puntos = 2;
+				break;
+			case 15:
+				puntos = 1;
+				break;
+			default:
+				puntos = 0; 
+				break;
 		}
+		return puntos;
 	}
 }

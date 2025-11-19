@@ -1,196 +1,360 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MotoGP - Pilotos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background: #0f0f0f;
-            min-height: 100vh;
-        }
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+      }
     </style>
-</head>
-<body>
-    <div class="bg-warning" style="height: 3px;"></div>
-    <div class="bg-danger" style="height: 2px;"></div>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="/">
-                <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-warning" href="/pilotos">Pilotos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/equipos">Equipos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/carreras">Carreras</a>
-                    </li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <div class="bg-warning" style="height: 3px"></div>
+    <div class="bg-danger" style="height: 2px"></div>
+
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span
+          ><span class="text-danger">GP</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-warning" href="/pilotos"
+                >Pilotos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/equipos">Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/carreras">Carreras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="/temporadas">Temporadas</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="container py-5">
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="text-center text-md-start">
-                        <h1 class="display-3 fw-bold mb-3">
-                            <span class="text-warning">PILOTOS</span> <span class="text-danger">2025</span>
-                        </h1>
-                        <p class="lead text-light">Los mejores pilotos del mundo compitiendo por la gloria</p>
-                    </div>
-                    <div class="d-none d-md-block">
-                        <a href="/pilotos/new" class="btn btn-success btn-lg fw-bold">
-                            <i class="bi bi-plus-circle"></i> Agregar Piloto
-                        </a>
-                    </div>
-                </div>
-                <div class="d-md-none text-center mt-3">
-                    <a href="/pilotos/nuevo" class="btn btn-success btn-lg fw-bold">
-                        <i class="bi bi-plus-circle"></i> Agregar Piloto
-                    </a>
-                </div>
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="text-center text-md-start">
+              <h1 class="display-3 fw-bold mb-3">
+                <span class="text-warning">PILOTOS</span>
+                <span class="text-danger">2025</span>
+              </h1>
+              <p class="lead text-light">
+                Los mejores pilotos del mundo compitiendo por la gloria
+              </p>
             </div>
+            <div class="d-none d-md-block">
+              <a href="/pilotos/new" class="btn btn-success btn-lg fw-bold">
+                <i class="bi bi-plus-circle"></i> Agregar Piloto
+              </a>
+            </div>
+          </div>
+          <div class="d-md-none text-center mt-3">
+            <a href="/pilotos/nuevo" class="btn btn-success btn-lg fw-bold">
+              <i class="bi bi-plus-circle"></i> Agregar Piloto
+            </a>
+          </div>
         </div>
+      </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col" th:each="piloto : ${pilotos}">
-                <div class="card bg-black text-white border-0 h-100 shadow-lg position-relative overflow-hidden" 
-                     style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(255,193,7,0.4)'"
-                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.5)'">
-                    
-                    <div class="position-absolute w-100 h-100" 
-                         style="background: linear-gradient(135deg, rgba(220,53,69,0.1) 0%, rgba(255,193,7,0.1) 100%); z-index: 0;"></div>
-                    
-                    <div class="position-absolute top-0 w-100" style="height: 4px; background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%); z-index: 1;"></div>
-                    
-                    <div class="position-relative" style="z-index: 2;">
-                        <div class="p-4 pb-3" style="background: linear-gradient(180deg, rgba(220,53,69,0.2) 0%, transparent 100%);">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div class="flex-grow-1">
-                                    <h3 class="mb-2 fw-bold" style="font-size: 1.5rem; letter-spacing: 1px;">
-                                        <span class="text-warning" th:text="${piloto.nombre}">Nombre Piloto</span>
-                                    </h3>
-                                    
-                                    <div class="mb-0">
-                                        <span class="badge px-3 py-2" 
-                                              style="background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); color: #000; font-weight: 600; font-size: 0.85rem;"
-                                              th:if="${piloto.moto}">
-                                            🏍️ <span th:text="${piloto.moto.marca != null ? piloto.moto.marca : 'Moto'}">Moto</span>
-                                        </span>
-                                        <span class="badge bg-secondary px-3 py-2" 
-                                              style="font-size: 0.85rem;"
-                                              th:unless="${piloto.moto}">
-                                            Sin moto
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                <div class="ms-3">
-                                    <div class="d-flex align-items-center justify-content-center rounded-circle" 
-                                         style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); 
-                                                border: 3px solid #ffc107; box-shadow: 0 4px 15px rgba(220,53,69,0.5);">
-                                        <span class="fw-bold" style="font-size: 2rem; color: white;" th:text="${piloto.id}">1</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="p-4 pt-3">
-                            <div class="row g-3">
-                                <div class="col-6">
-                                    <div class="p-3 rounded-3" 
-                                         style="background: linear-gradient(135deg, rgba(255,193,7,0.15) 0%, rgba(255,193,7,0.05) 100%); 
-                                                border-left: 3px solid #ffc107;">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">🏁</span>
-                                            <small class="text-warning ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Carreras</small>
-                                        </div>
-                                        <strong class="text-white d-block" style="font-size: 1.8rem; font-weight: 700;" th:text="${piloto.totalCarreras}">0</strong>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-6">
-                                    <div class="p-3 rounded-3" 
-                                         style="background: linear-gradient(135deg, rgba(220,53,69,0.15) 0%, rgba(220,53,69,0.05) 100%); 
-                                                border-left: 3px solid #dc3545;">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">⭐</span>
-                                            <small class="text-danger ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Puntos</small>
-                                        </div>
-                                        <strong class="text-white d-block" style="font-size: 1.8rem; font-weight: 700;" th:text="${piloto.totalPuntos}">0</strong>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <div class="p-3 rounded-3" 
-                                         style="background: linear-gradient(135deg, rgba(40,167,69,0.15) 0%, rgba(40,167,69,0.05) 100%); 
-                                                border-left: 3px solid #28a745;">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">💰</span>
-                                            <small class="text-success ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Ganancias</small>
-                                        </div>
-                                        <strong class="d-block" style="font-size: 1.8rem; font-weight: 700; color: #28a745;">
-                                            <span th:text="${#numbers.formatDecimal(piloto.dinero, 1, 'COMMA', 2, 'POINT')}">0.00</span>
-                                            <small style="font-size: 1rem;">€</small>
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="p-4 pt-0">
-                            <a th:href="@{/pilotos/{id}(id=${piloto.id})}" 
-                               class="btn w-100 py-3 fw-bold text-uppercase" 
-                               style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); 
-                                      border: 2px solid #ffc107; color: white; letter-spacing: 1px; font-size: 0.9rem;
-                                      transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(220,53,69,0.3);"
-                               onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.02)'"
-                               onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'">
-                                Ver Perfil Completo →
-                            </a>
-                        </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" th:each="piloto : ${pilotos}">
+          <div
+            class="card bg-black text-white border-0 h-100 shadow-lg position-relative overflow-hidden"
+            style="transition: transform 0.3s ease, box-shadow 0.3s ease"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 30px rgba(255,193,7,0.4)'"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.5)'"
+          >
+            <div
+              class="position-absolute w-100 h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(220, 53, 69, 0.1) 0%,
+                  rgba(255, 193, 7, 0.1) 100%
+                );
+                z-index: 0;
+              "
+            ></div>
+
+            <div
+              class="position-absolute top-0 w-100"
+              style="
+                height: 4px;
+                background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%);
+                z-index: 1;
+              "
+            ></div>
+
+            <div class="position-relative" style="z-index: 2">
+              <div
+                class="p-4 pb-3"
+                style="
+                  background: linear-gradient(
+                    180deg,
+                    rgba(220, 53, 69, 0.2) 0%,
+                    transparent 100%
+                  );
+                "
+              >
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="flex-grow-1">
+                    <h3
+                      class="mb-2 fw-bold"
+                      style="font-size: 1.5rem; letter-spacing: 1px"
+                    >
+                      <span class="text-warning" th:text="${piloto.nombre}"
+                        >Nombre Piloto</span
+                      >
+                    </h3>
+
+                    <div class="mb-0">
+                      <span
+                        class="badge px-3 py-2"
+                        style="
+                          background: linear-gradient(
+                            135deg,
+                            #ffc107 0%,
+                            #ff9800 100%
+                          );
+                          color: #000;
+                          font-weight: 600;
+                          font-size: 0.85rem;
+                        "
+                        th:if="${piloto.moto}"
+                      >
+                        🏍️
+                        <span
+                          th:text="${piloto.moto.marca != null ? piloto.moto.marca : 'Moto'}"
+                          >Moto</span
+                        >
+                      </span>
+                      <span
+                        class="badge bg-secondary px-3 py-2"
+                        style="font-size: 0.85rem"
+                        th:unless="${piloto.moto}"
+                      >
+                        Sin moto
+                      </span>
                     </div>
+                  </div>
+
+                  <div class="ms-3">
+                    <div
+                      class="d-flex align-items-center justify-content-center rounded-circle"
+                      style="
+                        width: 70px;
+                        height: 70px;
+                        background: linear-gradient(
+                          135deg,
+                          #dc3545 0%,
+                          #c82333 100%
+                        );
+                        border: 3px solid #ffc107;
+                        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.5);
+                      "
+                    >
+                      <span
+                        class="fw-bold"
+                        style="font-size: 2rem; color: white"
+                        th:text="${piloto.id}"
+                        >1</span
+                      >
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="row" th:if="${#lists.isEmpty(pilotos)}">
-            <div class="col-12 text-center py-5">
-                <div class="alert alert-warning" role="alert">
-                    <h3 class="alert-heading">No hay pilotos registrados</h3>
-                    <p>Agrega pilotos para comenzar a competir</p>
-                    <hr>
-                    <a href="/pilotos/nuevo" class="btn btn-danger">Agregar Piloto</a>
+              </div>
+
+              <div class="p-4 pt-3">
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div
+                      class="p-3 rounded-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          rgba(255, 193, 7, 0.15) 0%,
+                          rgba(255, 193, 7, 0.05) 100%
+                        );
+                        border-left: 3px solid #ffc107;
+                      "
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span style="font-size: 1.2rem">🏁</span>
+                        <small
+                          class="text-warning ms-2 text-uppercase"
+                          style="
+                            font-size: 0.7rem;
+                            letter-spacing: 1px;
+                            font-weight: 600;
+                          "
+                          >Carreras</small
+                        >
+                      </div>
+                      <strong
+                        class="text-white d-block"
+                        style="font-size: 1.8rem; font-weight: 700"
+                        th:text="${piloto.totalCarreras}"
+                        >0</strong
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div
+                      class="p-3 rounded-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          rgba(220, 53, 69, 0.15) 0%,
+                          rgba(220, 53, 69, 0.05) 100%
+                        );
+                        border-left: 3px solid #dc3545;
+                      "
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span style="font-size: 1.2rem">⭐</span>
+                        <small
+                          class="text-danger ms-2 text-uppercase"
+                          style="
+                            font-size: 0.7rem;
+                            letter-spacing: 1px;
+                            font-weight: 600;
+                          "
+                          >Puntos</small
+                        >
+                      </div>
+                      <strong
+                        class="text-white d-block"
+                        style="font-size: 1.8rem; font-weight: 700"
+                        th:text="${piloto.totalPuntos}"
+                        >0</strong
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div
+                      class="p-3 rounded-3"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          rgba(40, 167, 69, 0.15) 0%,
+                          rgba(40, 167, 69, 0.05) 100%
+                        );
+                        border-left: 3px solid #28a745;
+                      "
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span style="font-size: 1.2rem">💰</span>
+                        <small
+                          class="text-success ms-2 text-uppercase"
+                          style="
+                            font-size: 0.7rem;
+                            letter-spacing: 1px;
+                            font-weight: 600;
+                          "
+                          >Ganancias</small
+                        >
+                      </div>
+                      <strong
+                        class="d-block"
+                        style="
+                          font-size: 1.8rem;
+                          font-weight: 700;
+                          color: #28a745;
+                        "
+                      >
+                        <span
+                          th:text="${#numbers.formatDecimal(piloto.dinero, 1, 'COMMA', 2, 'POINT')}"
+                          >0.00</span
+                        >
+                        <small style="font-size: 1rem">€</small>
+                      </strong>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div class="p-4 pt-0">
+                <a
+                  th:href="@{/pilotos/{id}(id=${piloto.id})}"
+                  class="btn w-100 py-3 fw-bold text-uppercase"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #dc3545 0%,
+                      #c82333 100%
+                    );
+                    border: 2px solid #ffc107;
+                    color: white;
+                    letter-spacing: 1px;
+                    font-size: 0.9rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+                  "
+                  onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.02)'"
+                  onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
+                >
+                  Ver Perfil Completo →
+                </a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="row" th:if="${#lists.isEmpty(pilotos)}">
+        <div class="col-12 text-center py-5">
+          <div class="alert alert-warning" role="alert">
+            <h3 class="alert-heading">No hay pilotos registrados</h3>
+            <p>Agrega pilotos para comenzar a competir</p>
+            <hr />
+            <a href="/pilotos/nuevo" class="btn btn-danger">Agregar Piloto</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="bg-black text-white py-4 mt-5 border-top border-warning">
-        <div class="container text-center">
-            <p class="mb-0">
-                <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span> 
-                &copy; 2025 - Todos los derechos reservados
-            </p>
-        </div>
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span
+          ><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

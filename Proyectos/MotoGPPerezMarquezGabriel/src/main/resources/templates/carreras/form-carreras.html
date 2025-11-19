@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoGP - Gestión de Carrera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column min-vh-100 bg-black">
+    
+    <!-- Barras decorativas (Usando utilidades de altura y color de Bootstrap) -->
+    <div class="bg-warning" style="height: 4px;"></div>
+    <div class="bg-danger" style="height: 3px;"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-warning" style="--bs-bg-opacity: .1;">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pilotos">Pilotos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/equipos">Equipos</a></li>
+            <li class="nav-item"><a class="nav-link active text-warning" href="/carreras/">Carreras</a></li>
+            <li class="nav-item"><a class="nav-link" href="/clasificacion">Clasificación</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido Principal (Usamos flex-grow-1 para empujar el footer) -->
+    <div class="container py-5 flex-grow-1">
+      
+      <div class="row mb-4 align-items-center">
+        <div class="col-md-8">
+          <a href="/carreras/" class="btn btn-outline-secondary mb-2 btn-sm text-uppercase fw-bold">
+            &larr; Volver
+          </a>
+          <h1 class="display-5 fw-bold text-uppercase mb-0">
+            <span class="text-warning" th:text="${carrera.id != null ? 'Editar' : 'Nueva'}">NUEVA</span>
+            <span class="text-danger">Carrera</span>
+          </h1>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <!-- Card nativa de Bootstrap con borde de color -->
+          <div class="card border-warning shadow">
+            <div class="card-body p-4 p-md-5">
+              
+              <form th:action="@{/carreras/save}" th:object="${carrera}" method="post">
+                
+                <input type="hidden" th:field="*{id}" />
+                <input type="hidden" th:field="*{jugada}" />
+
+                <!-- Nombre del Circuito -->
+                <div class="mb-4">
+                  <label for="nombreCircuito" class="form-label text-warning fw-bold">Nombre del Circuito</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text text-warning">🏁</span>
+                    <input type="text" class="form-control" id="nombreCircuito" 
+                           th:field="*{nombreCircuito}" placeholder="Ej: GP de Qatar" required />
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <!-- Fecha -->
+                  <div class="col-md-6">
+                    <label for="fecha" class="form-label text-warning fw-bold">Fecha</label>
+                    <div class="input-group">
+                        <span class="input-group-text text-warning">📅</span>
+                        <input type="date" class="form-control" id="fecha" th:field="*{fecha}" required />
+                    </div>
+                  </div>
+
+                  <!-- Temporada -->
+                  <div class="col-md-6">
+                    <label for="temporada" class="form-label text-warning fw-bold">Temporada</label>
+                    <div class="input-group">
+                        <span class="input-group-text text-warning">🏆</span>
+                        <select class="form-select" id="temporada" th:field="*{temporada}" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option th:each="t : ${temporadas}" 
+                                    th:value="${t.id}" 
+                                    th:text="${t.nombre}">Temporada 2024</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="alert alert-dark border-0 mt-4 d-flex align-items-center" role="alert">
+                    <span class="fs-4 me-2">ℹ️</span>
+                    <div class="small text-muted">
+                        Al guardar, la carrera heredará automáticamente los equipos inscritos en la temporada seleccionada.
+                    </div>
+                </div>
+
+                <hr class="border-secondary my-4">
+
+                <!-- Botones -->
+                <div class="d-flex justify-content-end gap-2">
+                  <a href="/carreras/" class="btn btn-outline-secondary px-4">Cancelar</a>
+                  <button type="submit" class="btn btn-success px-4 fw-bold">
+                    <span th:text="${carrera.id != null ? 'Actualizar Cambios' : 'Crear Carrera'}">Guardar</span>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-body-tertiary py-4 mt-auto border-top border-warning" style="--bs-bg-opacity: .1;">
+      <div class="container text-center">
+        <p class="mb-0 text-muted">
+          <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Gestión Deportiva
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

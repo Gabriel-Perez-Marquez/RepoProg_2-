@@ -1,175 +1,318 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MotoGP - Bienvenido</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background: #0f0f0f;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .content-wrapper {
-            flex: 1;
-        }
-        .hero-section {
-            min-height: calc(100vh - 150px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .content-wrapper {
+        flex: 1;
+      }
+      .hero-section {
+        min-height: calc(100vh - 150px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="content-wrapper">
-        <!-- Header stripes -->
-        <div class="bg-warning" style="height: 3px;"></div>
-        <div class="bg-danger" style="height: 2px;"></div>
-        
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-            <div class="container">
-                <a class="navbar-brand fw-bold fs-3" href="/">
-                    <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active text-warning" href="/">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/pilotos">Pilotos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/carreras">Carreras</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <!-- Header stripes -->
+      <div class="bg-warning" style="height: 3px"></div>
+      <div class="bg-danger" style="height: 2px"></div>
 
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <!-- Hero Card -->
-                        <div class="card bg-black text-white border-0 shadow-lg position-relative overflow-hidden">
-                            <!-- Efecto de fondo con gradiente -->
-                            <div class="position-absolute w-100 h-100" 
-                                 style="background: linear-gradient(135deg, rgba(220,53,69,0.15) 0%, rgba(255,193,7,0.15) 100%); z-index: 0;"></div>
-                            
-                            <!-- Borde superior decorativo -->
-                            <div class="position-absolute top-0 w-100" style="height: 4px; background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%); z-index: 1;"></div>
-                            
-                            <div class="position-relative text-center p-4" style="z-index: 2;">
-                                <!-- Logo principal -->
-                                <div class="mb-3">
-                                    <h1 class="fw-bold mb-0" style="font-size: 4rem; letter-spacing: 3px;">
-                                        <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-                                    </h1>
-                                </div>
-                                
-                                <!-- Subtítulo -->
-                                <div class="mb-3">
-                                    <h2 class="h3 mb-2 fw-bold" style="letter-spacing: 1px;">
-                                        <span style="background: linear-gradient(90deg, #ffc107 0%, #dc3545 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                                            Bienvenido al Mundo de la Velocidad
-                                        </span>
-                                    </h2>
-                                    <p class="mb-0 text-light" style="font-size: 1rem;">
-                                        Descubre la emoción de la máxima categoría del motociclismo mundial.<br>
-                                        Pilotos, equipos, circuitos y toda la adrenalina de MotoGP.
-                                    </p>
-                                </div>
-                                
-                                <!-- Decoración con iconos -->
-                                <div class="mb-4">
-                                    <span style="font-size: 2.5rem;">🏍️</span>
-                                    <span class="mx-2" style="font-size: 1.8rem; color: #ffc107;">⚡</span>
-                                    <span style="font-size: 2.5rem;">🏁</span>
-                                </div>
-                                
-                                <!-- Botones de acción -->
-                                <div class="row g-3 justify-content-center mb-3">
-                                    <div class="col-md-5">
-                                        <a th:href="@{/pilotos}" 
-                                           class="btn w-100 py-3 fw-bold text-uppercase" 
-                                           style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); 
-                                                  border: 2px solid #ffc107; color: white; letter-spacing: 1px; font-size: 0.95rem;
-                                                  transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(220,53,69,0.4);"
-                                           onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
-                                           onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'">
-                                            🏍️ Explorar Pilotos
-                                        </a>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <a href="/carreras" 
-                                           class="btn w-100 py-3 fw-bold text-uppercase" 
-                                           style="background: transparent; 
-                                                  border: 2px solid #ffc107; color: #ffc107; letter-spacing: 1px; font-size: 0.95rem;
-                                                  transition: all 0.3s ease;"
-                                           onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.borderColor='#dc3545'; this.style.transform='scale(1.05)'"
-                                           onmouseout="this.style.background='transparent'; this.style.color='#ffc107'; this.style.borderColor='#ffc107'; this.style.transform='scale(1)'">
-                                            🏁 Ver Carreras
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <!-- Stats decorativos -->
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="p-3 rounded-3" 
-                                             style="background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(255,193,7,0.05) 100%); 
-                                                    border-left: 3px solid #ffc107;">
-                                            <div class="text-warning fw-bold" style="font-size: 1.8rem;">⚡</div>
-                                            <div class="text-white fw-bold mt-1" style="font-size: 1rem;">VELOCIDAD</div>
-                                            <small class="text-muted" style="font-size: 0.8rem;">Máxima Adrenalina</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="p-3 rounded-3" 
-                                             style="background: linear-gradient(135deg, rgba(220,53,69,0.1) 0%, rgba(220,53,69,0.05) 100%); 
-                                                    border-left: 3px solid #dc3545;">
-                                            <div class="text-danger fw-bold" style="font-size: 1.8rem;">🏆</div>
-                                            <div class="text-white fw-bold mt-1" style="font-size: 1rem;">COMPETICIÓN</div>
-                                            <small class="text-muted" style="font-size: 0.8rem;">Elite Mundial</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="p-3 rounded-3" 
-                                             style="background: linear-gradient(135deg, rgba(40,167,69,0.1) 0%, rgba(40,167,69,0.05) 100%); 
-                                                    border-left: 3px solid #28a745;">
-                                            <div class="text-success fw-bold" style="font-size: 1.8rem;">⭐</div>
-                                            <div class="text-white fw-bold mt-1" style="font-size: 1rem;">EMOCIÓN</div>
-                                            <small class="text-muted" style="font-size: 0.8rem;">Pura Pasión</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-3" href="/">
+            <span class="text-warning">MOTO</span
+            ><span class="text-danger">GP</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active text-warning" href="/">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pilotos">Pilotos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-warning" href="/equipos">Equipos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/carreras">Carreras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-warning" href="/temporadas"
+                  >Temporadas</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <!-- Hero Card -->
+              <div
+                class="card bg-black text-white border-0 shadow-lg position-relative overflow-hidden"
+              >
+                <!-- Efecto de fondo con gradiente -->
+                <div
+                  class="position-absolute w-100 h-100"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(220, 53, 69, 0.15) 0%,
+                      rgba(255, 193, 7, 0.15) 100%
+                    );
+                    z-index: 0;
+                  "
+                ></div>
+
+                <!-- Borde superior decorativo -->
+                <div
+                  class="position-absolute top-0 w-100"
+                  style="
+                    height: 4px;
+                    background: linear-gradient(
+                      90deg,
+                      #dc3545 0%,
+                      #ffc107 100%
+                    );
+                    z-index: 1;
+                  "
+                ></div>
+
+                <div
+                  class="position-relative text-center p-4"
+                  style="z-index: 2"
+                >
+                  <!-- Logo principal -->
+                  <div class="mb-3">
+                    <h1
+                      class="fw-bold mb-0"
+                      style="font-size: 4rem; letter-spacing: 3px"
+                    >
+                      <span class="text-warning">MOTO</span
+                      ><span class="text-danger">GP</span>
+                    </h1>
+                  </div>
+
+                  <!-- Subtítulo -->
+                  <div class="mb-3">
+                    <h2 class="h3 mb-2 fw-bold" style="letter-spacing: 1px">
+                      <span
+                        style="
+                          background: linear-gradient(
+                            90deg,
+                            #ffc107 0%,
+                            #dc3545 100%
+                          );
+                          -webkit-background-clip: text;
+                          -webkit-text-fill-color: transparent;
+                          background-clip: text;
+                        "
+                      >
+                        Bienvenido al Mundo de la Velocidad
+                      </span>
+                    </h2>
+                    <p class="mb-0 text-light" style="font-size: 1rem">
+                      Descubre la emoción de la máxima categoría del
+                      motociclismo mundial.<br />
+                      Pilotos, equipos, circuitos y toda la adrenalina de
+                      MotoGP.
+                    </p>
+                  </div>
+
+                  <!-- Decoración con iconos -->
+                  <div class="mb-4">
+                    <span style="font-size: 2.5rem">🏍️</span>
+                    <span class="mx-2" style="font-size: 1.8rem; color: #ffc107"
+                      >⚡</span
+                    >
+                    <span style="font-size: 2.5rem">🏁</span>
+                  </div>
+
+                  <!-- Botones de acción -->
+                  <div class="row g-3 justify-content-center mb-3">
+                    <div class="col-md-5">
+                      <a
+                        th:href="@{/pilotos}"
+                        class="btn w-100 py-3 fw-bold text-uppercase"
+                        style="
+                          background: linear-gradient(
+                            135deg,
+                            #dc3545 0%,
+                            #c82333 100%
+                          );
+                          border: 2px solid #ffc107;
+                          color: white;
+                          letter-spacing: 1px;
+                          font-size: 0.95rem;
+                          transition: all 0.3s ease;
+                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+                        "
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
+                      >
+                        🏍️ Explorar Pilotos
+                      </a>
+                    </div>
+                    <div class="col-md-5">
+                      <a
+                        href="/carreras"
+                        class="btn w-100 py-3 fw-bold text-uppercase"
+                        style="
+                          background: transparent;
+                          border: 2px solid #ffc107;
+                          color: #ffc107;
+                          letter-spacing: 1px;
+                          font-size: 0.95rem;
+                          transition: all 0.3s ease;
+                        "
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.borderColor='#dc3545'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='transparent'; this.style.color='#ffc107'; this.style.borderColor='#ffc107'; this.style.transform='scale(1)'"
+                      >
+                        🏁 Ver Carreras
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Stats decorativos -->
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <div
+                        class="p-3 rounded-3"
+                        style="
+                          background: linear-gradient(
+                            135deg,
+                            rgba(255, 193, 7, 0.1) 0%,
+                            rgba(255, 193, 7, 0.05) 100%
+                          );
+                          border-left: 3px solid #ffc107;
+                        "
+                      >
+                        <div
+                          class="text-warning fw-bold"
+                          style="font-size: 1.8rem"
+                        >
+                          ⚡
+                        </div>
+                        <div
+                          class="text-white fw-bold mt-1"
+                          style="font-size: 1rem"
+                        >
+                          VELOCIDAD
+                        </div>
+                        <small class="text-muted" style="font-size: 0.8rem"
+                          >Máxima Adrenalina</small
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div
+                        class="p-3 rounded-3"
+                        style="
+                          background: linear-gradient(
+                            135deg,
+                            rgba(220, 53, 69, 0.1) 0%,
+                            rgba(220, 53, 69, 0.05) 100%
+                          );
+                          border-left: 3px solid #dc3545;
+                        "
+                      >
+                        <div
+                          class="text-danger fw-bold"
+                          style="font-size: 1.8rem"
+                        >
+                          🏆
+                        </div>
+                        <div
+                          class="text-white fw-bold mt-1"
+                          style="font-size: 1rem"
+                        >
+                          COMPETICIÓN
+                        </div>
+                        <small class="text-muted" style="font-size: 0.8rem"
+                          >Elite Mundial</small
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div
+                        class="p-3 rounded-3"
+                        style="
+                          background: linear-gradient(
+                            135deg,
+                            rgba(40, 167, 69, 0.1) 0%,
+                            rgba(40, 167, 69, 0.05) 100%
+                          );
+                          border-left: 3px solid #28a745;
+                        "
+                      >
+                        <div
+                          class="text-success fw-bold"
+                          style="font-size: 1.8rem"
+                        >
+                          ⭐
+                        </div>
+                        <div
+                          class="text-white fw-bold mt-1"
+                          style="font-size: 1rem"
+                        >
+                          EMOCIÓN
+                        </div>
+                        <small class="text-muted" style="font-size: 0.8rem"
+                          >Pura Pasión</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-3 border-top border-warning">
-        <div class="container text-center">
-            <p class="mb-0">
-                <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span> 
-                &copy; 2025 - Todos los derechos reservados
-            </p>
-        </div>
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span
+          ><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

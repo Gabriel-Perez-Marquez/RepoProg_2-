@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoGP - Jugar Carrera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+      }
+      .table {
+        --bs-table-bg: #1a1a1a;
+        --bs-table-border-color: #444;
+      }
+      .form-control-posicion {
+          background-color: #2a2a2a;
+          color: #fff;
+          border-color: #444;
+          width: 100px;
+      }
+      .form-control-posicion:focus {
+          background-color: #3a3a3a;
+          color: #fff;
+          border-color: #ffc107;
+          box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+      }
+    </style>
+  </head>
+  <body class="text-light">
+    <div class="bg-warning" style="height: 3px"></div>
+    <div class="bg-danger" style="height: 2px"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pilotos">Pilotos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/equipos">Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-warning" href="/carreras/">Carreras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clasificacion">Clasificación</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <div class="row mb-4">
+        <div class="col-12">
+          <a href="/carreras/" class="btn btn-outline-warning mb-3">
+            ← Volver a Carreras
+          </a>
+          <h1 class="display-3 fw-bold mb-2">
+            <span class="text-warning">JUGAR</span>
+            <span class="text-danger">CARRERA</span>
+          </h1>
+          <p class="lead text-light fs-4" th:text="${carrera.nombreCircuito}">
+            Nombre del Circuito
+          </p>
+        </div>
+      </div>
+
+      <div class="row" id="js-error-alert" style="display: none;">
+        <div class="col-12">
+          <div class="alert alert-danger" role="alert">
+            <strong>Error:</strong> No puedes asignar la misma posición a dos pilotos diferentes. Por favor, revisa los números.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12">
+          <form th:action="@{/carreras/jugar/{id}(id=${carrera.id})}" method="post" id="formJugarCarrera">
+            
+            <input type="hidden" name="carreraId" th:value="${carrera.id}" />
+
+            <div class="table-responsive shadow-lg">
+              <table class="table table-dark align-middle border border-warning">
+                <thead class="table-dark" style="--bs-table-bg: #000;">
+                  <tr>
+                    <th scope="col" class="text-warning fs-5">Piloto</th>
+                    <th scope="col" class="text-warning fs-5">Equipo</th>
+                    <th scope="col" class="text-danger fs-5 text-center" style="width: 150px;">Posición Final</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="piloto : ${pilotos}">
+                    <td class="fw-bold fs-5">
+                      <input type="hidden" name="pilotoId" th:value="${piloto.id}" />
+                      <span th:text="${piloto.nombre}">Nombre Piloto</span>
+                    </td>
+                    <td class="text-secondary" th:text="${piloto.equipo?.nombre}">
+                      Nombre Equipo
+                    </td>
+                    <td class="text-center">
+                      <input type="number" name="posicion" class="form-control form-control-posicion text-center fw-bold fs-5" 
+                            min="1" th:max="${#lists.size(pilotos)}" placeholder="0" required />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-success btn-lg fw-bold px-5 py-3">
+                🏁 ¡Finalizar Carrera y Guardar Resultados!
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="bg-black text-white py-4 mt-5 border-top border-warning">
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      document.getElementById('formJugarCarrera').addEventListener('submit', function(event) {
+        const alertBox = document.getElementById('js-error-alert');
+        alertBox.style.display = 'none';
+
+        const posicionesInputs = document.querySelectorAll('input[name="posicion"]');
+        const posicionesUnicas = new Set();
+        let hayDuplicado = false;
+
+        for (const input of posicionesInputs) {
+          const pos = parseInt(input.value, 10);
+          if (posicionesUnicas.has(pos)) {
+            hayDuplicado = true;
+            break;
+          }
+          posicionesUnicas.add(pos);
+        }
+
+        if (hayDuplicado) {
+          event.preventDefault();
+          alertBox.style.display = 'block';
+          window.scrollTo(0, 0);
+        }
+      });
+    </script>
+    
+  </body>
+</html>
