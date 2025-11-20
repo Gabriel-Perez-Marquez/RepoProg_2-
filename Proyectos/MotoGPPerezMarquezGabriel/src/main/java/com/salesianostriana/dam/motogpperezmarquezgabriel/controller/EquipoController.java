@@ -81,8 +81,14 @@ public class EquipoController {
     @GetMapping("/equipos/{id}")
     public String mostrarDetallesEquipo(@PathVariable Long id, Model model) {
     	
-    	model.addAttribute("equipo", equipoService.findById(id).orElse(null));
-    	model.addAttribute("costeTotalReparacion", mecanicoService.calcularCosteReparacion(id));
+    	Equipo e = equipoService.findById(id).orElse(null);
+    	
+    	model.addAttribute("equipo", e);
+    	
+    	
+    	
+    	model.addAttribute("costeTotalReparacion", mecanicoService.calcularCosteReparacion(id));    		
+    	
     	return "equipos/mostrarDetallesEquipo";
     	
     }

@@ -50,17 +50,17 @@ public class MecanicoService {
 		double plus_bajo = 1500;
         double plus_medio = 3000;
         double plus_alto = 7500;
-
-		
-		
+        double desgasteBajo = 35;
+        double desgasteMedio = 50;
+        double desgasteAlto = 100;
 		
 		
 
 		if (mecanicos.isEmpty()) {
-			throw new RuntimeException("El equipo no tiene mecánicos para reparar.");
+			return 0;
 		}
 		if (motosDelEquipo.isEmpty()) {
-			throw new RuntimeException("No hay motos que necesiten reparación.");
+			return 0;
 		}
 		
 		
@@ -73,14 +73,18 @@ public class MecanicoService {
 		for (Moto moto : motosDelEquipo) {
             double desgaste = moto.getPorcentDesgaste();
             
-            if (desgaste == 100) {
+            System.out.println(desgaste);
+            
+            if (desgaste <= desgasteAlto && desgaste > desgasteMedio) {
                 costeVariableTotal += plus_alto;
-            } else if (desgaste >= 50) {
+            } else if (desgaste <= desgasteMedio && desgaste > desgasteBajo) {
                 costeVariableTotal += plus_medio;
-            } else if (desgaste >= 35) {
+            } else {
                 costeVariableTotal += plus_bajo;
             }
         }
+		
+		System.out.println(costeVariableTotal);
 
 		return costeBase + costeVariableTotal;
 		

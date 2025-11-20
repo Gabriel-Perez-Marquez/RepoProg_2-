@@ -130,8 +130,8 @@
                 </ul>
               </div>
               
-              <div class="container my-4">
-    
+              
+              <div th:if="${costeTotalReparacion != 0}" class="container my-4">
                 <div th:if="${param.exito == 'reparacion'}" class="alert alert-success">
                   ¡Motos reparadas con éxito! Se ha restado el coste del dinero del equipo.
                 </div>
@@ -145,14 +145,12 @@
                       Usa a tus mecánicos para reparar todas las motos del equipo.
                       Esto consumirá el sueldo base de los mecánicos más un plus por el desgaste.
                   </p>
-                  
                   <button type="button" class="btn btn-warning btn-lg fw-bold"
                           data-bs-toggle="modal" 
                           data-bs-target="#confirmarReparacionModal">
                       🛠️ Reparar Todas las Motos
                   </button>
                 </div>
-
               </div>
               
             </div>

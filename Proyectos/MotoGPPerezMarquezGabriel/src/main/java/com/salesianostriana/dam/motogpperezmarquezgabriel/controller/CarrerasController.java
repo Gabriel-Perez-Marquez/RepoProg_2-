@@ -20,6 +20,7 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.ResultadoCarrera;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Temporada;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.ResultadoCarreraService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
 
@@ -28,6 +29,9 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaServi
 public class CarrerasController {
 
 	@Autowired
+	private PilotoService pilotoService;
+	
+	@Autowired
 	private CarreraService carreraService;
 	
 	@Autowired
@@ -35,6 +39,7 @@ public class CarrerasController {
 	
 	@Autowired
 	private ResultadoCarreraService resultadoCarreraService;
+
 	
 	@GetMapping("")
 	public String listarCarrerasPorTemporada(Model model) {
@@ -70,24 +75,36 @@ public class CarrerasController {
 	@PostMapping("/jugar/{id}")
 	public String guardarResultados(
 	        @PathVariable("id") Long carreraId, 
-	        @RequestParam(name = "pilotoId", required = false) long[] pilotoIds, 
-	        @RequestParam(name = "posicion", required = false) Integer[] posiciones) {
+	        @RequestParam(name = "pilotoId", required = false) List<Long> pilotoIds, 
+	        @RequestParam(name = "posicion", required = false) int [] posiciones) {
 		
 		if (pilotoIds == null || posiciones == null) {
 			return "redirect:/carreras/jugar/" + carreraId;
 		}
-	
 		
+		Piloto p;
+		
+		ResultadoCarrera res;
+		
+		double plusEquipo = 2000;
+		
+		List<Piloto> pilotosOrdenados = pilotoService.findAllById(pilotoIds);;
+		
+		
+
 		List<ResultadoCarrera> resultadosInput = new ArrayList<>();
-		for (int i = 0; i < pilotoIds.length; i++) {
+		
+		
+		for (int i = 0; i < pilotoIds.size(); i++) {
 			
-			Integer posActual = posiciones[i];
 			
-			if (posActual != null && posActual > 0) { 
-				ResultadoCarrera res = new ResultadoCarrera();
+			int posActual = posiciones[i];
+			
+			if (posActual > 0) { 
+				res = new ResultadoCarrera();
 				
-				Piloto p = new Piloto();
-				p.setId(pilotoIds[i]);
+				p = new Piloto();
+				p.setId(pilotoIds.get(i));
 				
 				res.setPiloto(p);
 				res.setPosicion(posActual);
@@ -96,6 +113,7 @@ public class CarrerasController {
 		}
 	
 		
+		carreraService.repartirPremiosPorClasificacion(pilotosOrdenados, plusEquipo);
 		resultadoCarreraService.registrarResultados(carreraId, resultadosInput);
 		 
 		
