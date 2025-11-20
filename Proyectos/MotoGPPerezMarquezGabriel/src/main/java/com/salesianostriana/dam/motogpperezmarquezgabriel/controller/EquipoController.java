@@ -13,6 +13,7 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.EquipoService;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.MecanicoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
 
 import java.util.Optional;
@@ -31,6 +32,9 @@ public class EquipoController {
 
     @Autowired
     private TemporadaService temporadaService;
+    
+    @Autowired
+    private MecanicoService mecanicoService;
 
     @GetMapping("/equipos")
     public String mostrarEquipos(Model model) {
@@ -78,7 +82,7 @@ public class EquipoController {
     public String mostrarDetallesEquipo(@PathVariable Long id, Model model) {
     	
     	model.addAttribute("equipo", equipoService.findById(id).orElse(null));
-    	
+    	model.addAttribute("costeTotalReparacion", mecanicoService.calcularCosteReparacion(id));
     	return "equipos/mostrarDetallesEquipo";
     	
     }

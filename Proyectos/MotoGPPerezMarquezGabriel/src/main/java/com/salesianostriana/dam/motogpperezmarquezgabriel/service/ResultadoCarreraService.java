@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,120 +8,124 @@ import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Carrera;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Moto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.ResultadoCarrera;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.CarreraRepository;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.MotoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.ResultadoCarreraRepository;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
 
 @Service
-public class ResultadoCarreraService extends BaseServiceImp<ResultadoCarrera, Long, ResultadoCarreraRepository> {
+public class ResultadoCarreraService {
 
 	@Autowired
-	private CarreraService carreraService;
-
+	private ResultadoCarreraRepository resultadoCarreraRepository;
+	
 	@Autowired
-	private PilotoService pilotoService;
-
+	private CarreraRepository carreraRepository;
+	
+	@Autowired
+	private PilotoService pilotoService; 
+	
 	@Autowired
 	private EquipoService equipoService;
-
-	public void registrarResultados(Long carreraId, List<ResultadoCarrera> resultadosInput) {
+	
+	@Autowired
+	private MotoRepository motoRepository;
+	
+	
+	public void registrarResultados(Long idCarrera, List<ResultadoCarrera> resultadosInput) {
 		
-		Carrera carrera = carreraService.findById(carreraId)
-				.orElseThrow(() -> new RuntimeException("Carrera no encontrada con ID: " + carreraId));
+		Carrera carrera = carreraRepository.findById(idCarrera)
+				.orElseThrow(() -> new RuntimeException("Carrera no encontrada"));
+		
+		Piloto pilotoCompleto;
+		Moto motoDelPiloto;
+		
+		List<Piloto> pilotosParaActualizar = new ArrayList<>();
+		List<Equipo> equiposParaActualizar = new ArrayList<>();
 
 		if (carrera.isJugada()) {
-			return;
+			throw new RuntimeException("La carrera ya ha sido jugada.");
 		}
-
-		for (ResultadoCarrera resultado : resultadosInput) {
+		
+		for (ResultadoCarrera input : resultadosInput) {
 			
-			resultado.setCarrera(carrera);
+			pilotoCompleto = pilotoService.findById(input.getPiloto().getId())
+					.orElse(null);
 			
-			int puntos = calcularPuntos(resultado.getPosicion());
-			resultado.setPuntosObtenidos(puntos);
-			
-			this.save(resultado);
-
-			Piloto piloto = pilotoService.findById(resultado.getPiloto().getId())
-					.orElseThrow(() -> new RuntimeException("Piloto no encontrado"));
-
-			piloto.setTotalCarreras(piloto.getTotalCarreras() + 1);
-			piloto.setTotalPuntos(piloto.getTotalPuntos() + puntos);
-
-			if (resultado.getPosicion() == 1) {
-				piloto.setTotalVictorias(piloto.getTotalVictorias() + 1);
-			}
-			
-			if (resultado.getPosicion() <= 3) {
-				piloto.setTotalPodios(piloto.getTotalPodios() + 1);
-			}
-			
-			pilotoService.save(piloto);
-
-			if (piloto.getEquipo() != null) {
-				Equipo equipo = piloto.getEquipo();
-				equipo.setTotalPuntos(equipo.getTotalPuntos() + puntos);
-				equipoService.save(equipo);
+			if (pilotoCompleto != null) {
+				int posicion = input.getPosicion();
+				int puntos = calcularPuntos(posicion);
+				
+				input.setPiloto(pilotoCompleto);
+				input.setCarrera(carrera);
+				input.setPuntosObtenidos(puntos);
+				
+				resultadoCarreraRepository.save(input);
+				
+				pilotoCompleto.setTotalPuntos(pilotoCompleto.getTotalPuntos() + puntos);
+				pilotoCompleto.setTotalCarreras(pilotoCompleto.getTotalCarreras() + 1);
+				
+				if (posicion == 1) {
+					pilotoCompleto.setTotalVictorias(pilotoCompleto.getTotalVictorias() + 1);
+				}
+				if (posicion <= 3) {
+					pilotoCompleto.setTotalPodios(pilotoCompleto.getTotalPodios() + 1);
+				}
+				
+				motoDelPiloto = pilotoCompleto.getMoto();
+				if (motoDelPiloto != null) {
+					int desgasteSufrido = (int) (Math.random() * 11) + 5; 
+					double nuevoDesgaste = motoDelPiloto.getPorcentDesgaste() + desgasteSufrido;
+	
+					if (nuevoDesgaste > 100) {
+						nuevoDesgaste = 100;
+					}
+					
+					motoDelPiloto.setPorcentDesgaste(nuevoDesgaste);
+					motoRepository.save(motoDelPiloto); 
+				}
+				
+				if (!equiposParaActualizar.contains(pilotoCompleto.getEquipo())) {
+					equiposParaActualizar.add(pilotoCompleto.getEquipo());
+				}
+				
+				pilotosParaActualizar.add(pilotoCompleto);
 			}
 		}
 
 		carrera.setJugada(true);
-		carreraService.save(carrera);
-	}
-
-	private int calcularPuntos(int posicion) {
-		int puntos = 0;
-		switch (posicion) {
-			case 1:
-				puntos = 25;
-				break;
-			case 2:
-				puntos = 20;
-				break;
-			case 3:
-				puntos = 16;
-				break;
-			case 4:
-				puntos = 13;
-				break;
-			case 5:
-				puntos = 11;
-				break;
-			case 6:
-				puntos = 10;
-				break;
-			case 7:
-				puntos = 9;
-				break;
-			case 8:
-				puntos = 8;
-				break;
-			case 9:
-				puntos = 7;
-				break;
-			case 10:
-				puntos = 6;
-				break;
-			case 11:
-				puntos = 5;
-				break;
-			case 12:
-				puntos = 4;
-				break;
-			case 13:
-				puntos = 3;
-				break;
-			case 14:
-				puntos = 2;
-				break;
-			case 15:
-				puntos = 1;
-				break;
-			default:
-				puntos = 0; 
-				break;
+		carreraRepository.save(carrera);
+		
+		for(Piloto piloto : pilotosParaActualizar){
+			pilotoService.save(piloto);
 		}
-		return puntos;
+		
+		for(Equipo e : equiposParaActualizar) {
+			equipoService.recalcularEstadisticasYGuardar(e.getId());
+		}
+	}
+	
+	
+	private int calcularPuntos(int posicion) {
+		switch (posicion) {
+			case 1: return 25;
+			case 2: return 20;
+			case 3: return 16;
+			case 4: return 13;
+			case 5: return 11;
+			case 6: return 10;
+			case 7: return 9;
+			case 8: return 8;
+			case 9: return 7;
+			case 10: return 6;
+			case 11: return 5;
+			case 12: return 4;
+			case 13: return 3;
+			case 14: return 2;
+			case 15: return 1;
+			default: return 0;
+		}
 	}
 }

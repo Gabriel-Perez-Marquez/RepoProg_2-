@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body>
+<body class="text-light">
     <div class="content-wrapper">
         <!-- Header stripes -->
         <div class="bg-warning" style="height: 3px;"></div>
@@ -41,7 +41,13 @@
                         <a class="nav-link active text-warning" href="/pilotos">Pilotos</a>
                     </li>
                     <li class="nav-item">
+                         <a class="nav-link" href="/equipos">Equipos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/carreras">Carreras</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="/clasificacion">Clasificación</a>
                     </li>
                 </ul>
             </div>
@@ -97,51 +103,76 @@
                             </div>
                         </div>
 
-                        <!-- Estadísticas principales -->
+                        <!-- Estadísticas principales (CORREGIDO) -->
                         <div class="p-4 pt-3">
-                            <div class="row g-3 mb-3">
-                                <!-- Carreras -->
-                                <div class="col-md-4">
+                            <div class="row g-3 mb-4">
+                                <!-- Puntos -->
+                                <div class="col-md-6 col-lg-3">
                                     <div class="p-3 rounded-3" 
                                          style="background: linear-gradient(135deg, rgba(255,193,7,0.15) 0%, rgba(255,193,7,0.05) 100%); 
                                                 border-left: 3px solid #ffc107;">
                                         <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">🏁</span>
-                                            <small class="text-warning ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Carreras</small>
+                                            <span style="font-size: 1.2rem;">⭐</span>
+                                            <small class="text-warning ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Puntos</small>
                                         </div>
-                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.num_carreras}">0</strong>
+                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.totalPuntos}">0</strong>
                                     </div>
                                 </div>
                                 
-                                <!-- Puntos -->
-                                <div class="col-md-4">
+                                <!-- Victorias -->
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="p-3 rounded-3" 
+                                         style="background: linear-gradient(135deg, rgba(255,193,7,0.15) 0%, rgba(255,193,7,0.05) 100%); 
+                                                border-left: 3px solid #ffc107;">
+                                        <div class="d-flex align-items-center mb-1">
+                                            <span style="font-size: 1.2rem;">🏆</span>
+                                            <small class="text-warning ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Victorias</small>
+                                        </div>
+                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.totalVictorias}">0</strong>
+                                    </div>
+                                </div>
+                                
+                                <!-- Podios -->
+                                <div class="col-md-6 col-lg-3">
                                     <div class="p-3 rounded-3" 
                                          style="background: linear-gradient(135deg, rgba(220,53,69,0.15) 0%, rgba(220,53,69,0.05) 100%); 
                                                 border-left: 3px solid #dc3545;">
                                         <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">⭐</span>
-                                            <small class="text-danger ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Puntos</small>
+                                            <span style="font-size: 1.2rem;">🥈</span>
+                                            <small class="text-danger ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Podios</small>
                                         </div>
-                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.puntos}">0</strong>
+                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.totalPodios}">0</strong>
                                     </div>
                                 </div>
                                 
-                                <!-- Ganancias -->
-                                <div class="col-md-4">
+                                <!-- Carreras -->
+                                <div class="col-md-6 col-lg-3">
                                     <div class="p-3 rounded-3" 
-                                         style="background: linear-gradient(135deg, rgba(40,167,69,0.15) 0%, rgba(40,167,69,0.05) 100%); 
-                                                border-left: 3px solid #28a745;">
+                                         style="background: linear-gradient(135deg, rgba(220,53,69,0.15) 0%, rgba(220,53,69,0.05) 100%); 
+                                                border-left: 3px solid #dc3545;">
                                         <div class="d-flex align-items-center mb-1">
-                                            <span style="font-size: 1.2rem;">💰</span>
-                                            <small class="text-success ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Ganancias</small>
+                                            <span style="font-size: 1.2rem;">🏁</span>
+                                            <small class="text-danger ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Carreras</small>
                                         </div>
-                                        <strong class="d-block" style="font-size: 2rem; font-weight: 700; color: #28a745;">
-                                            <span th:text="${#numbers.formatDecimal(piloto.dinero, 1, 'COMMA', 2, 'POINT')}">0.00</span>
-                                            <small style="font-size: 0.9rem;">€</small>
-                                        </strong>
+                                        <strong class="text-white d-block" style="font-size: 2rem; font-weight: 700;" th:text="${piloto.totalCarreras}">0</strong>
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Ganancias -->
+                            <div class="p-3 rounded-3 mb-4" 
+                                 style="background: linear-gradient(135deg, rgba(40,167,69,0.15) 0%, rgba(40,167,69,0.05) 100%); 
+                                        border-left: 3px solid #28a745;">
+                                <div class="d-flex align-items-center mb-1">
+                                    <span style="font-size: 1.2rem;">💰</span>
+                                    <small class="text-success ms-2 text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px; font-weight: 600;">Ganancias</small>
+                                </div>
+                                <strong class="d-block" style="font-size: 2rem; font-weight: 700; color: #28a745;">
+                                    <span th:text="${#numbers.formatDecimal(piloto.dinero, 1, 'COMMA', 2, 'POINT')}">0.00</span>
+                                    <small style="font-size: 0.9rem;">€</small>
+                                </strong>
+                            </div>
+                            
 
                             <!-- Información de la Moto -->
                             <div class="p-3 rounded-3 mb-3" 
@@ -195,7 +226,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a th:href="@{/pilotos/editar/{id}(id=${piloto.id})}" 
+                                    <a th:href="@{/pilotos/edit/{id}(id=${piloto.id})}" 
                                        class="btn w-100 py-2 fw-bold text-uppercase" 
                                        style="background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); 
                                               border: 2px solid #dc3545; color: #000; letter-spacing: 1px; font-size: 0.85rem;

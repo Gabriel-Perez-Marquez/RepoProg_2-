@@ -21,5 +21,5 @@ public class Moto {
 	@Column(name = "tipo_motor")
 	private String tipoMotor;
 	@Column(name = "porcent_desgaste")
-	private int porcentDesgaste;
+	private double porcentDesgaste;
 }
