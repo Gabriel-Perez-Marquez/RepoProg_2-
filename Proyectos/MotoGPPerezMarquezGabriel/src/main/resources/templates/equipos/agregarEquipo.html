@@ -111,15 +111,22 @@
 
                             <div class="mb-3">
                                 <label for="pilotos" class="form-label text-warning fw-bold">Pilotos</label>
-                                <select id="pilotos" multiple size="6"
-                                        class="form-select bg-dark text-white border-warning"
-                                        th:field="*{pilotos}">
-                                    <option th:each="p : ${pilotos}"
-                                            th:value="${p.id}"
-                                            th:text="${p.nombre}">
-                                    </option>
-                                </select>
-                                <small class="text-secondary">Mantén Ctrl/Cmd para seleccionar varias.</small>
+                                <th:block th:if="${#lists.isEmpty(pilotos)}">
+                                    <div class="alert alert-warning mt-2 mb-0" role="alert">
+                                        No hay pilotos disponibles porque todos tienen un equipo.
+                                    </div>
+                                </th:block>
+                                <th:block th:unless="${#lists.isEmpty(pilotos)}">
+                                    <select id="pilotos" multiple size="6"
+                                            class="form-select bg-dark text-white border-warning"
+                                            th:field="*{pilotos}">
+                                        <option th:each="p : ${pilotos}"
+                                                th:value="${p.id}"
+                                                th:text="${p.nombre}">
+                                        </option>
+                                    </select>
+                                    <small class="text-secondary">Mantén Ctrl/Cmd para seleccionar varias.</small>
+                                </th:block>
                             </div>
 
 

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.EquipoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.MecanicoService;
@@ -57,6 +57,9 @@ public class EquipoController {
 
     @PostMapping("/equipos/save")
     public String guardarEquipo(@ModelAttribute Equipo e) {
+    	for(Piloto p: e.getPilotos()){
+    		p.setEquipo(e);
+    	}
         equipoService.save(e); 
         return "redirect:/equipos";
     }

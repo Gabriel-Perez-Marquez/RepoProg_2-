@@ -86,41 +86,62 @@ public class CarrerasController {
 			return "redirect:/carreras/jugar/" + carreraId;
 		}
 		
-		Piloto p;
+		List<Piloto> pilotosDeLaBd = pilotoService.findAllById(pilotoIds);
+		
+		List<Piloto> pilotosEnOrdenDeLlegada = new ArrayList<>();
+		
+		List<ResultadoCarrera> resultadosInput = new ArrayList<>();
+		
+		Long idDelFormulario;
+		
+		Piloto pilotoEncontrado;
+		
+		boolean encontrado;
 		
 		ResultadoCarrera res;
 		
 		double plusEquipo = 2000;
 		
-		List<Piloto> pilotosOrdenados = pilotoService.findAllById(pilotoIds);;
-		
-		
-
-		List<ResultadoCarrera> resultadosInput = new ArrayList<>();
 		
 		
 		for (int i = 0; i < pilotoIds.size(); i++) {
-			
-			
 			int posActual = posiciones[i];
 			
 			if (posActual > 0) { 
-				res = new ResultadoCarrera();
+				idDelFormulario = pilotoIds.get(i);
 				
-				p = new Piloto();
-				p.setId(pilotoIds.get(i));
+				pilotoEncontrado = null;
+				encontrado = false;
+
+				for (Piloto p : pilotosDeLaBd) {
+					if (!encontrado && p.getId().equals(idDelFormulario)) {
+						pilotoEncontrado = p;
+						encontrado = true;
+					}
+				}
 				
-				res.setPiloto(p);
-				res.setPosicion(posActual);
-				resultadosInput.add(res);
+				if (pilotoEncontrado != null) {
+					res = new ResultadoCarrera();
+					res.setPiloto(pilotoEncontrado);
+					res.setPosicion(posActual);
+					resultadosInput.add(res);
+				}
 			}
 		}
 	
+		resultadosInput.sort(Comparator.comparingInt(ResultadoCarrera::getPosicion));
 		
-		carreraService.repartirPremiosPorClasificacion(pilotosOrdenados, plusEquipo);
+		
+		for (ResultadoCarrera r : resultadosInput) {
+			pilotosEnOrdenDeLlegada.add(r.getPiloto());
+		}
+
+		
+		
+		carreraService.repartirPremiosPorClasificacion(pilotosEnOrdenDeLlegada, plusEquipo);
+		
 		resultadoCarreraService.registrarResultados(carreraId, resultadosInput);
 		 
-		
 		return "redirect:/carreras";
 	}
 	
