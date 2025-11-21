@@ -10,6 +10,12 @@
         background: #0f0f0f;
         min-height: 100vh;
       }
+      .header-stripe-warning {
+        height: 3px;
+      }
+      .header-stripe-danger {
+        height: 2px;
+      }
       .accordion-button {
         background-color: #1a1a1a;
         color: #ffc107;
@@ -50,40 +56,11 @@
     </style>
   </head>
   <body class="text-light">
-    <!-- Header stripes -->
-    <div class="bg-warning" style="height: 3px"></div>
-    <div class="bg-danger" style="height: 2px"></div>
+  <!-- Header stripes -->
+  <div class="bg-warning header-stripe-warning"></div>
+  <div class="bg-danger header-stripe-danger"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="/">
-          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pilotos">Pilotos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/equipos">Equipos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-warning" href="/carreras/">Carreras</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/clasificacion">Clasificación</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
 
     <!-- Main Content -->
     <div class="container py-5">
@@ -163,9 +140,9 @@
                           🏆 Ver Resultados
                         </a>
                         
-                        <a th:href="@{/carreras/edit/{id}(id=${carrera.id})}" class="btn btn-outline-secondary btn-sm me-1">✏️</a>
+                        <a th:if="${!carrera.jugada}" th:href="@{/carreras/edit/{id}(id=${carrera.id})}" class="btn btn-outline-secondary btn-sm me-1">✏️</a>
                         
-                        <button type="button" 
+                        <button th:if="${!carrera.jugada}" type="button" 
                                 class="btn btn-outline-danger btn-sm" 
                                 data-bs-toggle="modal" 
                                 th:data-bs-target="'#deleteModal-' + ${carrera.id}">

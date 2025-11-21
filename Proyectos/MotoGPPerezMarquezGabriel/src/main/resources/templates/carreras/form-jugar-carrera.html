@@ -16,57 +16,41 @@
         --bs-table-border-color: #444;
       }
       .form-control-posicion {
-          background-color: #2a2a2a;
-          color: #fff;
-          border-color: #444;
-          width: 100px;
+        background-color: #2a2a2a;
+        color: #fff;
+        border-color: #444;
+        width: 100px;
       }
       .form-control-posicion:focus {
-          background-color: #3a3a3a;
-          color: #fff;
-          border-color: #ffc107;
-          box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+        background-color: #3a3a3a;
+        color: #fff;
+        border-color: #ffc107;
+        box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+      }
+      .header-stripe-warning {
+        height: 3px;
+      }
+      .header-stripe-danger {
+        height: 2px;
+      }
+      .table-dark thead {
+        --bs-table-bg: #000;
+      }
+      .posicion-final-col {
+        width: 150px;
       }
     </style>
   </head>
   <body class="text-light">
-    <div class="bg-warning" style="height: 3px"></div>
-    <div class="bg-danger" style="height: 2px"></div>
+  <div class="bg-warning header-stripe-warning"></div>
+  <div class="bg-danger header-stripe-danger"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="/">
-          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pilotos">Pilotos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/equipos">Equipos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-warning" href="/carreras/">Carreras</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/clasificacion">Clasificación</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
 
     <div class="container py-5">
       <div class="row mb-4">
         <div class="col-12">
-          <a href="/carreras/" class="btn btn-outline-warning mb-3">
+          <a href="/carreras" class="btn btn-outline-warning mb-3">
             ← Volver a Carreras
           </a>
           <h1 class="display-3 fw-bold mb-2">
@@ -95,11 +79,11 @@
 
             <div class="table-responsive shadow-lg">
               <table class="table table-dark align-middle border border-warning">
-                <thead class="table-dark" style="--bs-table-bg: #000;">
+                <thead class="table-dark">
                   <tr>
                     <th scope="col" class="text-warning fs-5">Piloto</th>
                     <th scope="col" class="text-warning fs-5">Equipo</th>
-                    <th scope="col" class="text-danger fs-5 text-center" style="width: 150px;">Posición Final</th>
+                    <th scope="col" class="text-danger fs-5 text-center posicion-final-col">Posición Final</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -112,8 +96,8 @@
                       Nombre Equipo
                     </td>
                     <td class="text-center">
-                      <input type="number" name="posicion" class="form-control form-control-posicion text-center fw-bold fs-5" 
-                            min="1" th:max="${#lists.size(pilotos)}" placeholder="0" required />
+          <input type="number" name="posicion" class="form-control form-control-posicion text-center fw-bold fs-5" 
+            min="1" th:max="${#lists.size(pilotos)}" placeholder="0" required />
                     </td>
                   </tr>
                 </tbody>

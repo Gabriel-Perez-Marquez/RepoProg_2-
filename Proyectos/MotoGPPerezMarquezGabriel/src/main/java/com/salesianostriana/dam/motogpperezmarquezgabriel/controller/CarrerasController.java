@@ -19,14 +19,13 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.ResultadoCarrera;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Temporada;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.ResultadoCarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.*;
 
 @Controller
 @RequestMapping("/carreras")
 public class CarrerasController {
+
+    private final EquipoService equipoService;
 
 	@Autowired
 	private PilotoService pilotoService;
@@ -39,6 +38,11 @@ public class CarrerasController {
 	
 	@Autowired
 	private ResultadoCarreraService resultadoCarreraService;
+
+
+    CarrerasController(EquipoService equipoService) {
+        this.equipoService = equipoService;
+    }
 
 	
 	@GetMapping("")
@@ -153,7 +157,7 @@ public class CarrerasController {
 		model.addAttribute("carrera", carreraService.findById(id)
 			.orElseThrow(() -> new RuntimeException("Carrera no encontrada")));
 		model.addAttribute("temporadas", temporadaService.findAll());
-		return "carreras/form-carreras";
+		return "carreras/form-carrera";
 	}
 	
 	@PostMapping("/save")
@@ -162,8 +166,12 @@ public class CarrerasController {
 		Temporada t = temporadaService.findById(carrera.getTemporada().getId())
 	            .orElseThrow(() -> new RuntimeException("Temporada no encontrada"));
 		
+		if (carrera.getEquipos() != null) {
+	        carrera.setEquipos(new ArrayList<>(carrera.getEquipos()));
+	    }
+		
 		carrera.setTemporada(t);
-		carrera.setEquipos(t.getEquipos()); 
+		carrera.setEquipos(equipoService.findAll()); 
 		
 		carreraService.save(carrera);
 		return "redirect:/carreras";

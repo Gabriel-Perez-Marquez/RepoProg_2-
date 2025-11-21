@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -24,5 +25,6 @@ public class Mecanico {
 	private double cuota;
     
 	@OneToMany(mappedBy = "mecanico")
-    private List<Equipo> equipos = new ArrayList<>();
+	@ToString.Exclude
+    private List<Equipo> equipos;
 }

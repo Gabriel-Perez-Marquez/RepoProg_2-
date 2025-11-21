@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,6 +64,25 @@ public class PilotoController {
 		return "redirect:/pilotos";
 		
 	}
+	
+	@GetMapping("/pilotos/edit/{id}")
+	public String editarPiloto(@PathVariable Long id, Model model) {
+		
+		Optional<Piloto> posiblePiloto = pilotoService.findById(id);
+		
+		if (posiblePiloto.isPresent()) {
+			model.addAttribute("piloto", posiblePiloto.get());
+			
+			model.addAttribute("motos", motoService.findAll());
+			model.addAttribute("equipos", equipoService.findAll());
+			
+			return "pilotos/pilotoForm";
+		} else {
+			return "redirect:/pilotos";
+		}
+	}
+	
+	
 	
 	
 	

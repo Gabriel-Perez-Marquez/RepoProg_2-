@@ -68,4 +68,8 @@ public class PilotoService extends BaseServiceImp<Piloto, Long, PilotoRepository
 		this.save(piloto);
 	}
 	
+	public List<Piloto> findPilotosLibres() {
+        return pilotoRepository.findByEquipoIsNull();
+    }
+	
 }

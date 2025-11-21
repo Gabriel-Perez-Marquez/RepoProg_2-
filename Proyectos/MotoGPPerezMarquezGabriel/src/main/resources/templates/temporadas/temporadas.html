@@ -18,43 +18,28 @@
         transform: translateY(-10px);
         box-shadow: 0 15px 30px rgba(255,193,7,0.4) !important;
       }
+      .header-stripe-warning {
+        height: 3px;
+      }
+      .header-stripe-danger {
+        height: 2px;
+      }
+      .card-temporada-border {
+        border-width: 3px;
+      }
+      .svg-temporada {
+        height: 4rem;
+        width: 4rem;
+        margin: auto;
+      }
     </style>
   </head>
   <body class="text-light">
     <!-- Header stripes -->
-    <div class="bg-warning" style="height: 3px"></div>
-    <div class="bg-danger" style="height: 2px"></div>
+  <div class="bg-warning header-stripe-warning"></div>
+  <div class="bg-danger header-stripe-danger"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="/">
-          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pilotos">Pilotos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/equipos">Equipos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/carreras">Carreras</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-warning" href="/temporadas">Temporadas</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
 
     <!-- Main Content -->
     <div class="container py-5">
@@ -74,10 +59,10 @@
         
         <!-- Tarjeta por Temporada (Loop) -->
         <div class="col" th:each="temporada : ${temporadas}">
-            <div class="card bg-black text-white border-warning h-100 shadow-lg card-temporada" style="border-width: 3px;">
+            <div class="card bg-black text-white border-warning h-100 shadow-lg card-temporada card-temporada-border">
                 <div class="card-body p-5 text-center d-flex flex-column">
                     <div class="mb-4">
-                        <svg class="text-warning" style="height: 4rem; width: 4rem; margin: auto;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="text-warning svg-temporada" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                         </svg>
                     </div>

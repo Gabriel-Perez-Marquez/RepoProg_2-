@@ -47,10 +47,11 @@ public class EquipoController {
     public String agregarEquipo(Model model) {
         Equipo e = new Equipo();
         model.addAttribute("equipo", e);
-        model.addAttribute("pilotos", pilotoService.findAll());
+        model.addAttribute("pilotos", pilotoService.findPilotosLibres());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
         model.addAttribute("temporadas", temporadaService.findAll());
+        model.addAttribute("mecanicos", mecanicoService.findAll());
         return "equipos/agregarEquipo";
     }
 
@@ -64,18 +65,16 @@ public class EquipoController {
     @GetMapping("/equipos/edit/{id}")
     public String editarEquipo(@PathVariable Long id, Model model) {
         Optional<Equipo> opt = equipoService.findById(id);
-        Equipo e;
         if (opt.isEmpty()) {
             return "redirect:/equipos";
-        } else {
-        	e = opt.get();
         }
         
-        model.addAttribute("equipo", e);
+        model.addAttribute("equipo", opt.get());
         model.addAttribute("pilotos", pilotoService.findAll());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
         model.addAttribute("temporadas", temporadaService.findAll());
+        model.addAttribute("mecanicos", mecanicoService.findAll());
         return "equipos/agregarEquipo";
     }
     
