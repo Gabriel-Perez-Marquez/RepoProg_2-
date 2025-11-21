@@ -10,7 +10,6 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Carrera;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.CarreraRepository;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.PilotoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
 
 @Service

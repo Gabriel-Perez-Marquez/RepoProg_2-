@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 
 public interface PilotoRepository extends JpaRepository<Piloto, Long> {

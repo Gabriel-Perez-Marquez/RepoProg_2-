@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.EquipoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.PilotoRepository;

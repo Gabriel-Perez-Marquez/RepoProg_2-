@@ -84,6 +84,14 @@ public class PilotoController {
 	
 	
 	
+	@GetMapping("/pilotos/delete/{id}")
+    public String borrarPiloto(@PathVariable("id") Long id) {
+        pilotoService.deleteById(id);
+        return "redirect:/pilotos";
+    }
+	
+	
+	
 	
 	
 }
