@@ -1,206 +1,336 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MotoGP - Equipos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background: #0f0f0f;
-            min-height: 100vh;
-        }
-        .equipo-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .equipo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255,193,7,0.4) !important;
-        }
+      body {
+        background: #0f0f0f;
+        min-height: 100vh;
+      }
+      .equipo-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .equipo-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(255, 193, 7, 0.4) !important;
+      }
     </style>
-</head>
-<body>
-    <div class="bg-warning" style="height: 3px;"></div>
-    <div class="bg-danger" style="height: 2px;"></div>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="/">
-                <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/pilotos">Pilotos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-warning" href="/equipos">Equipos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/carreras">Carreras</a>
-                    </li>
-                </ul>
-            </div>
+  </head>
+  <body>
+    <div class="bg-warning" style="height: 3px"></div>
+    <div class="bg-danger" style="height: 2px"></div>
+
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+          <span class="text-warning">MOTO</span
+          ><span class="text-danger">GP</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pilotos">Pilotos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-warning" href="/equipos"
+                >Equipos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/carreras">Carreras</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="container py-5">
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="text-center text-md-start">
-                        <h1 class="display-3 fw-bold mb-3">
-                            <span class="text-warning">EQUIPOS</span> <span class="text-danger">2025</span>
-                        </h1>
-                        <p class="lead text-light">Los equipos que compiten por la gloria en MotoGP</p>
-                    </div>
-                    <div class="d-none d-md-block">
-                        <a th:href="@{/equipos/agregar-equipo}" class="btn btn-success btn-lg fw-bold">
-                            <i class="bi bi-plus-circle"></i> Agregar Equipo
-                        </a>
-                    </div>
-                </div>
-                <div class="d-md-none text-center mt-3">
-                    <a th:href="@{/equipos/agregar-equipo}" class="btn btn-success btn-lg fw-bold">
-                       <i class="bi bi-plus-circle"></i> Agregar Equipo
-                    </a>
-                </div>
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="text-center text-md-start">
+              <h1 class="display-3 fw-bold mb-3">
+                <span class="text-warning">EQUIPOS</span>
+                <span class="text-danger">2025</span>
+              </h1>
+              <p class="lead text-light">
+                Los equipos que compiten por la gloria en MotoGP
+              </p>
             </div>
+            <div class="d-none d-md-block">
+              <a
+                th:href="@{/equipos/agregar-equipo}"
+                class="btn btn-success btn-lg fw-bold"
+              >
+                <i class="bi bi-plus-circle"></i> Agregar Equipo
+              </a>
+            </div>
+          </div>
+          <div class="d-md-none text-center mt-3">
+            <a
+              th:href="@{/equipos/agregar-equipo}"
+              class="btn btn-success btn-lg fw-bold"
+            >
+              <i class="bi bi-plus-circle"></i> Agregar Equipo
+            </a>
+          </div>
         </div>
+      </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col" th:each="equipo : ${equipos}">
-                <div class="card bg-black text-white border-0 h-100 shadow-lg position-relative overflow-hidden equipo-card">
-                    
-                    <div class="position-absolute w-100 h-100" 
-                         style="background: linear-gradient(135deg, rgba(220,53,69,0.1) 0%, rgba(255,193,7,0.1) 100%); z-index: 0;"></div>
-                    
-                    <div class="position-absolute top-0 w-100 bg-gradient" style="height: 4px; background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%); z-index: 1;"></div>
-                    
-                    <div class="position-relative" style="z-index: 2;">
-                        <div class="p-4 pb-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div class="flex-grow-1">
-                                    <h3 class="mb-2 fw-bold fs-5 text-warning" th:text="${equipo.nombre}">Nombre Equipo</h3>
-                                    
-                                    <div class="mb-0">
-                                        <span class="badge bg-info px-3 py-2" th:if="${equipo.patrocinador}">
-                                            🏢 <span th:text="${equipo.patrocinador}">Patrocinador</span>
-                                        </span>
-                                        <span class="badge bg-secondary px-3 py-2" th:unless="${equipo.patrocinador}">
-                                            Sin patrocinador
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                <div class="ms-3">
-                                    <div class="d-flex align-items-center justify-content-center bg-danger border border-warning border-3 shadow" 
-                                         style="width: 115px; height: 70px;">
-                                        <span class="fw-bold text-center small text-white" 
-                                              th:if="${equipo.temporada}" 
-                                              th:text="${equipo.temporada.nombre}">Clase</span>
-                                        <span class="fw-bold fs-4 text-white" th:unless="${equipo.temporada}">?</span>
-                                    </div>
-                                </div>
-                            </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
+        <div class="col" th:each="equipo : ${equipos}">
+          <div
+            class="card bg-black text-white border-0 h-100 shadow-lg position-relative overflow-hidden equipo-card"
+          >
+            <div
+              class="position-absolute w-100 h-100"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(220, 53, 69, 0.1) 0%,
+                  rgba(255, 193, 7, 0.1) 100%
+                );
+                z-index: 0;
+              "
+            ></div>
+
+            <div
+              class="position-absolute top-0 w-100 bg-gradient"
+              style="
+                height: 4px;
+                background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%);
+                z-index: 1;
+              "
+            ></div>
+
+            <div class="position-relative" style="z-index: 2">
+              <div class="p-4 pb-3">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="flex-grow-1">
+                    <h3
+                      class="mb-2 fw-bold fs-5 text-warning"
+                      th:text="${equipo.nombre}"
+                    >
+                      Nombre Equipo
+                    </h3>
+
+                    <div class="mb-0">
+                      <span
+                        class="badge bg-info px-3 py-2"
+                        th:if="${equipo.patrocinador}"
+                      >
+                        🏢
+                        <span th:text="${equipo.patrocinador}"
+                          >Patrocinador</span
+                        >
+                      </span>
+                      <span
+                        class="badge bg-secondary px-3 py-2"
+                        th:unless="${equipo.patrocinador}"
+                      >
+                        Sin patrocinador
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="ms-3">
+                    <div
+                      class="d-flex align-items-center justify-content-center bg-danger border border-warning border-3 shadow"
+                      style="width: 115px; height: 70px"
+                    >
+                      <span
+                        class="fw-bold text-center small text-white"
+                        th:if="${equipo.temporada}"
+                        th:text="${equipo.temporada.nombre}"
+                        >Clase</span
+                      >
+                      <span
+                        class="fw-bold fs-4 text-white"
+                        th:unless="${equipo.temporada}"
+                        >?</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 pt-3">
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div
+                      class="p-3 rounded-3 border-start border-danger border-3"
+                      style="background: rgba(220, 53, 69, 0.1)"
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span class="fs-5">⭐</span>
+                        <small
+                          class="text-danger ms-2 text-uppercase fw-bold"
+                          style="font-size: 0.7rem"
+                          >Puntos</small
+                        >
+                      </div>
+                      <strong
+                        class="text-white d-block fs-3"
+                        th:text="${equipo.totalPuntos}"
+                        >0</strong
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div
+                      class="p-3 rounded-3 border-start border-warning border-3"
+                      style="background: rgba(255, 193, 7, 0.1)"
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span class="fs-5">👥</span>
+                        <small
+                          class="text-warning ms-2 text-uppercase fw-bold"
+                          style="font-size: 0.7rem"
+                          >Pilotos</small
+                        >
+                      </div>
+                      <strong class="text-white d-block fs-3">
+                        <span
+                          th:if="${equipo.pilotos != null and !equipo.pilotos.isEmpty()}"
+                          th:text="${#lists.size(equipo.pilotos)}"
+                          >0</span
+                        >
+                        <span
+                          th:unless="${equipo.pilotos != null and !equipo.pilotos.isEmpty()}"
+                          >0</span
+                        >
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div
+                      class="p-3 rounded-3 border-start border-success border-3"
+                      style="background: rgba(40, 167, 69, 0.1)"
+                    >
+                      <div class="d-flex align-items-center mb-1">
+                        <span class="fs-5">💰</span>
+                        <small
+                          class="text-success ms-2 text-uppercase fw-bold"
+                          style="font-size: 0.7rem"
+                          >Presupuesto</small
+                        >
+                      </div>
+                      <strong class="d-block text-success fs-3">
+                        <span
+                          th:text="${#numbers.formatDecimal(equipo.dinero, 1, 'COMMA', 2, 'POINT')}"
+                          >0.00</span
+                        >
+                        <small class="fs-6">€</small>
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 pt-0">
+                <div class="row g-2">
+                  <div class="col-12">
+                    <a
+                      th:href="@{/equipos/{id}(id=${equipo.id})}"
+                      class="btn btn-danger w-100 py-2 fw-bold border border-warning border-2"
+                    >
+                      Ver Detalles →
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a
+                      th:href="@{/equipos/edit/{id}(id=${equipo.id})}"
+                      class="btn btn-outline-warning w-100 py-2 fw-bold small"
+                    >
+                      ✏️ Editar
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a
+                      href="#"
+                      class="btn btn-outline-danger w-100 py-2 fw-bold small"
+                      data-bs-toggle="modal"
+                      th:attr="data-bs-target='#deleteModal-' + ${equipo.id}"
+                    >
+                      🗑️ Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal fade" th:id="'deleteModal-' + ${equipo.id}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-black text-white border border-warning border-2 shadow-lg">
+                    <div class="modal-header border-bottom border-danger">
+                        <h5 class="modal-title fw-bold text-warning">Confirmar Eliminación</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de que deseas eliminar el equipo <strong class="text-warning" th:text="${equipo.nombre}">Equipo</strong> permanentemente?</p>
+                        <div class="alert alert-danger bg-danger bg-opacity-10 border-danger d-flex align-items-center mt-3" role="alert">
+                            <span class="me-2">⚠️</span>
+                            <span class="small text-danger fw-bold">Esta acción no se puede deshacer.</span>
                         </div>
-                        
-                        <div class="p-4 pt-3">
-                            <div class="row g-3">
-                                <div class="col-6">
-                                    <div class="p-3 rounded-3 border-start border-danger border-3" style="background: rgba(220,53,69,0.1);">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span class="fs-5">⭐</span>
-                                            <small class="text-danger ms-2 text-uppercase fw-bold" style="font-size: 0.7rem;">Puntos</small>
-                                        </div>
-                                        <strong class="text-white d-block fs-3" th:text="${equipo.totalPuntos}">0</strong>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-6">
-                                    <div class="p-3 rounded-3 border-start border-warning border-3" style="background: rgba(255,193,7,0.1);">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span class="fs-5">👥</span>
-                                            <small class="text-warning ms-2 text-uppercase fw-bold" style="font-size: 0.7rem;">Pilotos</small>
-                                        </div>
-                                        <strong class="text-white d-block fs-3">
-                                            <span th:if="${equipo.pilotos != null and !equipo.pilotos.isEmpty()}" 
-                                                  th:text="${#lists.size(equipo.pilotos)}">0</span>
-                                            <span th:unless="${equipo.pilotos != null and !equipo.pilotos.isEmpty()}">0</span>
-                                        </strong>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <div class="p-3 rounded-3 border-start border-success border-3" style="background: rgba(40,167,69,0.1);">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <span class="fs-5">💰</span>
-                                            <small class="text-success ms-2 text-uppercase fw-bold" style="font-size: 0.7rem;">Presupuesto</small>
-                                        </div>
-                                        <strong class="d-block text-success fs-3">
-                                            <span th:text="${#numbers.formatDecimal(equipo.dinero, 1, 'COMMA', 2, 'POINT')}">0.00</span>
-                                            <small class="fs-6">€</small>
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="p-4 pt-0">
-                            <div class="row g-2">
-                                <div class="col-12">
-                                    <a th:href="@{/equipos/{id}(id=${equipo.id})}" 
-                                       class="btn btn-danger w-100 py-2 fw-bold border border-warning border-2">
-                                        Ver Detalles →
-                                    </a>
-                                </div>
-                                <div class="col-6">
-                                    <a th:href="@{/equipos/edit/{id}(id=${equipo.id})}" 
-                                       class="btn btn-outline-warning w-100 py-2 fw-bold small">
-                                        ✏️ Editar
-                                    </a>
-                                </div>
-                                <div class="col-6">
-                                    <a th:href="@{/equipos/eliminar/{id}(id=${equipo.id})}" 
-                                       class="btn btn-outline-danger w-100 py-2 fw-bold small"
-                                       onclick="return confirm('¿Estás seguro de eliminar este equipo?')">
-                                        🗑️ Eliminar
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-secondary">
+                        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+                        <a th:href="@{/equipos/delete/{id}(id=${equipo.id})}" class="btn btn-danger fw-bold">Sí, Eliminar</a>
                     </div>
                 </div>
             </div>
+          </div>
+
         </div>
-        
-        <div class="row" th:if="${#lists.isEmpty(equipos)}">
-            <div class="col-12 text-center py-5">
-                <div class="alert alert-warning" role="alert">
-                    <h3 class="alert-heading">No hay equipos registrados</h3>
-                    <p>Agrega equipos para comenzar la competición</p>
-                    <hr>
-                    <a th:href="@{/equipos/nuevo}" class="btn btn-danger">Agregar Equipo</a>
-                </div>
-            </div>
+      </div>
+
+      <div class="row" th:if="${#lists.isEmpty(equipos)}">
+        <div class="col-12 text-center py-5">
+          <div class="alert alert-warning" role="alert">
+            <h3 class="alert-heading">No hay equipos registrados</h3>
+            <p>Agrega equipos para comenzar la competición</p>
+            <hr />
+            <a th:href="@{/equipos/nuevo}" class="btn btn-danger"
+              >Agregar Equipo</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <footer class="bg-black text-white py-4 mt-5 border-top border-warning">
-        <div class="container text-center">
-            <p class="mb-0">
-                <span class="text-warning fw-bold">MOTO</span><span class="text-danger fw-bold">GP</span> 
-                &copy; 2025 - Todos los derechos reservados
-            </p>
-        </div>
+      <div class="container text-center">
+        <p class="mb-0">
+          <span class="text-warning fw-bold">MOTO</span
+          ><span class="text-danger fw-bold">GP</span>
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

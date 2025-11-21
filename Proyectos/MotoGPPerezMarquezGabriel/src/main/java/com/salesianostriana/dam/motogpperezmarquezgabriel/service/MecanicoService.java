@@ -12,9 +12,10 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Moto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.MecanicoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.MotoRepository;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
 
 @Service
-public class MecanicoService {
+public class MecanicoService extends BaseServiceImp<Mecanico, Long, MecanicoRepository> {
 
 	@Autowired
 	private MecanicoRepository mecanicoRepository;

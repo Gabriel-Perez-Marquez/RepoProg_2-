@@ -4,14 +4,42 @@
 INSERT INTO temporada (nombre) VALUES ('Temporada MotoGP 2025');
 
 -- ============================================
--- PASO 1: EQUIPOS
+-- PASO 1: MECÁNICOS (Ahora se crean PRIMERO)
 -- ============================================
-INSERT INTO equipo (nombre, dinero, patrocinador, temporada_id, total_puntos) VALUES ('Ducati Factory', 50000, 'Michelin', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), 0);
-INSERT INTO equipo (nombre, dinero, patrocinador, temporada_id, total_puntos) VALUES ('Aprilia Racing', 40000, 'Red_Bull', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), 0);
-INSERT INTO equipo (nombre, dinero, patrocinador, temporada_id, total_puntos) VALUES ('KTM Factory', 35000, 'Qatar_Airways', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), 0);
-INSERT INTO equipo (nombre, dinero, patrocinador, temporada_id, total_puntos) VALUES ('Yamaha Monster', 45000, 'Monster_Energy', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), 0);
-INSERT INTO equipo (nombre, dinero, patrocinador, temporada_id, total_puntos) VALUES ('Honda Repsol', 30000, 'Repsol', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), 0);
+-- Creamos solo 2 mecánicos para repartirselos entre los 5 equipos
+INSERT INTO mecanico (nombre, cuota) VALUES ('Santi Hernández', 1500);
+INSERT INTO mecanico (nombre, cuota) VALUES ('Giacomo Guidotti', 1200);
 
+
+-- ============================================
+-- PASO 2: EQUIPOS (Ahora llevan la referencia al mecánico)
+-- ============================================
+
+-- Santi Hernández (ID 1) se encarga de Ducati, Aprilia y KTM
+INSERT INTO equipo (nombre, dinero, patrocinador, total_puntos, temporada_id, mecanico_id) 
+VALUES ('Ducati Factory', 50000, 'Michelin', 0, (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'),(SELECT id FROM mecanico WHERE nombre='Santi Hernández'));
+
+INSERT INTO equipo (nombre, dinero, patrocinador, total_puntos, temporada_id, mecanico_id) 
+VALUES ('Aprilia Racing', 40000, 'Red_Bull', 0, 
+    (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'),
+    (SELECT id FROM mecanico WHERE nombre='Santi Hernández'));
+
+INSERT INTO equipo (nombre, dinero, patrocinador, total_puntos, temporada_id, mecanico_id) 
+VALUES ('KTM Factory', 35000, 'Qatar_Airways', 0, 
+    (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'),
+    (SELECT id FROM mecanico WHERE nombre='Santi Hernández'));
+
+
+-- Giacomo Guidotti (ID 2) se encarga de Yamaha y Honda
+INSERT INTO equipo (nombre, dinero, patrocinador, total_puntos, temporada_id, mecanico_id) 
+VALUES ('Yamaha Monster', 45000, 'Monster_Energy', 0, 
+    (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'),
+    (SELECT id FROM mecanico WHERE nombre='Giacomo Guidotti'));
+
+INSERT INTO equipo (nombre, dinero, patrocinador, total_puntos, temporada_id, mecanico_id) 
+VALUES ('Honda Repsol', 30000, 'Repsol', 0, 
+    (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'),
+    (SELECT id FROM mecanico WHERE nombre='Giacomo Guidotti'));
 -- ============================================
 -- PASO 2: MOTOS
 -- ============================================
@@ -65,11 +93,7 @@ INSERT INTO carrera (nombre_circuito, fecha, temporada_id, jugada) VALUES ('Aut�
 INSERT INTO carrera (nombre_circuito, fecha, temporada_id, jugada) VALUES ('Circuit of the Americas', '2025-04-07', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), FALSE);
 INSERT INTO carrera (nombre_circuito, fecha, temporada_id, jugada) VALUES ('Circuit de Jerez - Ángel Nieto', '2025-04-21', (SELECT id FROM temporada WHERE nombre='Temporada MotoGP 2025'), FALSE);
 
--- ============================================
--- PASO 6: MECÁNICOS
--- ============================================
-INSERT INTO mecanico (nombre, cuota, equipo_id) VALUES ('Giacomo Guidotti', 1000, (SELECT id FROM equipo WHERE nombre='Honda Repsol'));
-INSERT INTO mecanico (nombre, cuota, equipo_id) VALUES ('Santi Hernández', 1000, (SELECT id FROM equipo WHERE nombre='Ducati Factory'));
+
 
 -- ============================================
 -- PASO 7: RELACIÓN CARRERA - EQUIPOS

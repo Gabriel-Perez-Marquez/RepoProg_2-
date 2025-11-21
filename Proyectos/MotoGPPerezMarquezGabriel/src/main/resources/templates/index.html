@@ -161,16 +161,13 @@
 
                   <!-- Botones de acción -->
                   <div class="row g-3 justify-content-center mb-3">
-                    <div class="col-md-5">
+                    <!-- Rojo: Pilotos -->
+                    <div class="col-md-5 col-lg-4">
                       <a
                         th:href="@{/pilotos}"
                         class="btn w-100 py-3 fw-bold text-uppercase"
                         style="
-                          background: linear-gradient(
-                            135deg,
-                            #dc3545 0%,
-                            #c82333 100%
-                          );
+                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
                           border: 2px solid #ffc107;
                           color: white;
                           letter-spacing: 1px;
@@ -184,22 +181,82 @@
                         🏍️ Explorar Pilotos
                       </a>
                     </div>
-                    <div class="col-md-5">
+                    <!-- Negro: Carreras -->
+                    <div class="col-md-5 col-lg-4">
                       <a
                         href="/carreras"
                         class="btn w-100 py-3 fw-bold text-uppercase"
                         style="
-                          background: transparent;
+                          background: #181818;
                           border: 2px solid #ffc107;
                           color: #ffc107;
                           letter-spacing: 1px;
                           font-size: 0.95rem;
                           transition: all 0.3s ease;
                         "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.borderColor='#dc3545'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='transparent'; this.style.color='#ffc107'; this.style.borderColor='#ffc107'; this.style.transform='scale(1)'"
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #181818 100%)'; this.style.color='#181818'; this.style.borderColor='#dc3545'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='#181818'; this.style.color='#ffc107'; this.style.borderColor='#ffc107'; this.style.transform='scale(1)'"
                       >
                         🏁 Ver Carreras
+                      </a>
+                    </div>
+                    <!-- Rojo: Equipos -->
+                    <div class="col-md-5 col-lg-4">
+                      <a
+                        href="/equipos"
+                        class="btn w-100 py-3 fw-bold text-uppercase"
+                        style="
+                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+                          border: 2px solid #ffc107;
+                          color: white;
+                          letter-spacing: 1px;
+                          font-size: 0.95rem;
+                          transition: all 0.3s ease;
+                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+                        "
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
+                      >
+                        🏆 Ver Equipos
+                      </a>
+                    </div>
+                    <!-- Negro: Temporadas -->
+                    <div class="col-md-5 col-lg-4">
+                      <a
+                        href="/temporadas"
+                        class="btn w-100 py-3 fw-bold text-uppercase"
+                        style="
+                          background: #181818;
+                          border: 2px solid #ffc107;
+                          color: #ffc107;
+                          letter-spacing: 1px;
+                          font-size: 0.95rem;
+                          transition: all 0.3s ease;
+                        "
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #181818 100%)'; this.style.color='#181818'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='#181818'; this.style.color='#ffc107'; this.style.transform='scale(1)'"
+                      >
+                        📅 Ver Temporadas
+                      </a>
+                    </div>
+                    <!-- Rojo: Clasificación -->
+                    <div class="col-md-5 col-lg-4">
+                      <a
+                        href="/temporadas/clasificacion"
+                        class="btn w-100 py-3 fw-bold text-uppercase"
+                        style="
+                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+                          border: 2px solid #ffc107;
+                          color: white;
+                          letter-spacing: 1px;
+                          font-size: 0.95rem;
+                          transition: all 0.3s ease;
+                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+                        "
+                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
+                      >
+                        🥇 Clasificación
                       </a>
                     </div>
                   </div>

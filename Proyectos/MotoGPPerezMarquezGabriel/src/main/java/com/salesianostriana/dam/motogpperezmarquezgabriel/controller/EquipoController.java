@@ -1,22 +1,23 @@
 package com.salesianostriana.dam.motogpperezmarquezgabriel.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.EquipoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.MecanicoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
-
-import java.util.Optional;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
 
 @Controller
 public class EquipoController {
@@ -92,4 +93,17 @@ public class EquipoController {
     	return "equipos/mostrarDetallesEquipo";
     	
     }
+    
+    
+    
+    @GetMapping("/equipos/delete/{id}")
+    public String eliminarEquipo(@PathVariable Long id) {
+    	
+    	equipoService.deleteById(id);
+    	
+    	return "redirect:/equipos";
+    }
+    
+    
+    
 }

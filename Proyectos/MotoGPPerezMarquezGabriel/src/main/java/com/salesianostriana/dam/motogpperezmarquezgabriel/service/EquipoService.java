@@ -3,9 +3,11 @@ package com.salesianostriana.dam.motogpperezmarquezgabriel.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.EquipoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
@@ -15,6 +17,10 @@ public class EquipoService extends BaseServiceImp<Equipo, Long, EquipoRepository
 	
 	@Autowired
 	private EquipoRepository equipoRepository;
+	
+	@Autowired
+	@Lazy
+	private MecanicoService mecanicoService;
 	
 	public List<Equipo> getClasificacionGeneralEquipos() {
 		return this.equipoRepository.findAllByOrderByTotalPuntosDesc();
@@ -27,12 +33,27 @@ public class EquipoService extends BaseServiceImp<Equipo, Long, EquipoRepository
 		
 		int totalPuntosEquipo = 0;
 		
-		// Un equipo suma los puntos de todos sus pilotos
 		for (Piloto p : equipo.getPilotos()) {
-			totalPuntosEquipo += p.getTotalPuntos(); // Leemos los puntos ya calculados del piloto
+			totalPuntosEquipo += p.getTotalPuntos(); 
 		}
 		
 		equipo.setTotalPuntos(totalPuntosEquipo);
 		this.save(equipo);
 	}
+	
+	
+	public void deleteById(Long id) {
+        Equipo equipo = equipoRepository.findById(id).orElse(null);
+        Mecanico m;
+        
+        
+        if (equipo != null) {
+            m=equipo.getMecanico();
+            m.getEquipos().remove(equipo);
+            mecanicoService.save(m);
+           
+            
+            equipoRepository.delete(equipo);
+        }
+    }
 }
