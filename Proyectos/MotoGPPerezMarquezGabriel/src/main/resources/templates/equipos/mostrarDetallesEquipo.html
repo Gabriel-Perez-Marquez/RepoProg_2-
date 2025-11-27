@@ -10,6 +10,12 @@
         background: #0f0f0f;
         min-height: 100vh;
       }
+      .header-stripe-warning {
+        height: 3px;
+      }
+      .header-stripe-danger {
+        height: 2px;
+      }
       .equipo-card {
         background: #111;
         border: 2px solid #ffc107;
@@ -41,53 +47,32 @@
         padding: 0.7rem 1rem;
         margin-bottom: 1rem;
       }
+      .equipo-header-shadow {
+        text-shadow: 0 2px 12px #000;
+        letter-spacing: 1px;
+      }
+      .equipo-badge-secondary {
+        border-radius: 1rem;
+        opacity: 0.85;
+      }
     </style>
 </head>
 <body class="text-light">
-    <!-- Header stripes -->
-    <div class="bg-warning" style="height: 3px"></div>
-    <div class="bg-danger" style="height: 2px"></div>
+  <!-- Header stripes -->
+  <div class="bg-warning header-stripe-warning"></div>
+  <div class="bg-danger header-stripe-danger"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-warning">
-      <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="/">
-          <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pilotos">Pilotos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-warning" href="/equipos">Equipos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/carreras">Carreras</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/clasificacion">Clasificación</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
 
     <div class="container py-5">
       <a href="/equipos" class="btn btn-outline-warning mb-4">← Volver a Equipos</a>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="equipo-card">
-            <div class="equipo-header text-center p-0" style="background: #181818; border-bottom: none;">
+            <div class="equipo-header text-center p-0">
               <div class="py-4">
-                <h1 class="display-4 fw-bold mb-2 text-light" style="text-shadow: 0 2px 12px #000; letter-spacing: 1px;" th:text="${equipo.nombre}">Nombre Equipo</h1>
-                <span class="badge bg-secondary fs-6 px-4 py-2 mb-2" style="border-radius: 1rem; opacity: 0.85;">
+                <h1 class="display-4 fw-bold mb-2 text-light equipo-header-shadow" th:text="${equipo.nombre}">Nombre Equipo</h1>
+                <span class="badge bg-secondary fs-6 px-4 py-2 mb-2 equipo-badge-secondary">
                   <span th:text="${equipo.patrocinador}">Patrocinador</span>
                 </span>
               </div>

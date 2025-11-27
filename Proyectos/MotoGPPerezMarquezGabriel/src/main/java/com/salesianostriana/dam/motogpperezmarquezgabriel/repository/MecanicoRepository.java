@@ -10,6 +10,6 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 @Repository
 public interface MecanicoRepository extends JpaRepository<Mecanico, Long> {
 
-	List<Mecanico> findByEquipoId(Long equipoId);
+	List<Mecanico> findByEquipos_Id(Long id);
 	
 }

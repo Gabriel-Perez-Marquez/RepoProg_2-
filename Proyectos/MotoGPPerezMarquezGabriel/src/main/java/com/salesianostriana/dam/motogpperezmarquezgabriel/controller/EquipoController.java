@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Patrocinadores;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.EquipoService;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.MecanicoService;
@@ -47,15 +47,19 @@ public class EquipoController {
     public String agregarEquipo(Model model) {
         Equipo e = new Equipo();
         model.addAttribute("equipo", e);
-        model.addAttribute("pilotos", pilotoService.findAll());
+        model.addAttribute("pilotos", pilotoService.findPilotosLibres());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
         model.addAttribute("temporadas", temporadaService.findAll());
+        model.addAttribute("mecanicos", mecanicoService.findAll());
         return "equipos/agregarEquipo";
     }
 
     @PostMapping("/equipos/save")
     public String guardarEquipo(@ModelAttribute Equipo e) {
+    	for(Piloto p: e.getPilotos()){
+    		p.setEquipo(e);
+    	}
         equipoService.save(e); 
         return "redirect:/equipos";
     }
@@ -64,18 +68,16 @@ public class EquipoController {
     @GetMapping("/equipos/edit/{id}")
     public String editarEquipo(@PathVariable Long id, Model model) {
         Optional<Equipo> opt = equipoService.findById(id);
-        Equipo e;
         if (opt.isEmpty()) {
             return "redirect:/equipos";
-        } else {
-        	e = opt.get();
         }
         
-        model.addAttribute("equipo", e);
+        model.addAttribute("equipo", opt.get());
         model.addAttribute("pilotos", pilotoService.findAll());
         model.addAttribute("carreras", carreraService.findAll());
         model.addAttribute("patrocinadores", Patrocinadores.values());
         model.addAttribute("temporadas", temporadaService.findAll());
+        model.addAttribute("mecanicos", mecanicoService.findAll());
         return "equipos/agregarEquipo";
     }
     

@@ -44,6 +44,7 @@ public class Equipo {
 	
 	@ManyToOne
     @JoinColumn(name = "mecanico_id") 
+	@ToString.Exclude
     private Mecanico mecanico;
 	
 	private int totalPuntos;

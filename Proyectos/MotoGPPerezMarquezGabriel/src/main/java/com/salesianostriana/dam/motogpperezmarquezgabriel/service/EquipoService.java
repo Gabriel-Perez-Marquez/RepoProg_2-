@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Mecanico;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.EquipoRepository;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.repository.PilotoRepository;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.service.base.BaseServiceImp;
 
 @Service
@@ -21,6 +21,9 @@ public class EquipoService extends BaseServiceImp<Equipo, Long, EquipoRepository
 	@Autowired
 	@Lazy
 	private MecanicoService mecanicoService;
+	
+	@Autowired
+	private PilotoRepository pilotoRepository;
 	
 	public List<Equipo> getClasificacionGeneralEquipos() {
 		return this.equipoRepository.findAllByOrderByTotalPuntosDesc();
@@ -44,16 +47,15 @@ public class EquipoService extends BaseServiceImp<Equipo, Long, EquipoRepository
 	
 	public void deleteById(Long id) {
         Equipo equipo = equipoRepository.findById(id).orElse(null);
-        Mecanico m;
-        
-        
+
         if (equipo != null) {
-            m=equipo.getMecanico();
-            m.getEquipos().remove(equipo);
-            mecanicoService.save(m);
-           
-            
-            equipoRepository.delete(equipo);
+            List<Piloto> pilotosDelEquipo = pilotoRepository.findByEquipo_Id(id);
+
+            for (Piloto p : pilotosDelEquipo) {
+                p.setEquipo(null);
+                pilotoRepository.save(p);
+            }
+            equipoRepository.deleteById(id);
         }
     }
 }

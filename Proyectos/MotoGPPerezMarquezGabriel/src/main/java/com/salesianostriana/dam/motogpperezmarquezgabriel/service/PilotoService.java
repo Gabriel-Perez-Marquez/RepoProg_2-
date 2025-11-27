@@ -68,4 +68,19 @@ public class PilotoService extends BaseServiceImp<Piloto, Long, PilotoRepository
 		this.save(piloto);
 	}
 	
+	public List<Piloto> findPilotosLibres() {
+        return pilotoRepository.findByEquipoIsNull();
+    }
+	
+	
+	public void deleteById(Long id) {
+        List<ResultadoCarrera> resultados = resultadoCarreraRepository.findByPilotoId(id);
+        
+        if (!resultados.isEmpty()) {
+            resultadoCarreraRepository.deleteAll(resultados);
+        }
+        
+        pilotoRepository.deleteById(id);
+    }
+	
 }

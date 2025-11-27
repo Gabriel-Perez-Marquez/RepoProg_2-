@@ -19,14 +19,13 @@ import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Equipo;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Piloto;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.ResultadoCarrera;
 import com.salesianostriana.dam.motogpperezmarquezgabriel.model.Temporada;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.CarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.PilotoService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.ResultadoCarreraService;
-import com.salesianostriana.dam.motogpperezmarquezgabriel.service.TemporadaService;
+import com.salesianostriana.dam.motogpperezmarquezgabriel.service.*;
 
 @Controller
 @RequestMapping("/carreras")
 public class CarrerasController {
+
+    private final EquipoService equipoService;
 
 	@Autowired
 	private PilotoService pilotoService;
@@ -39,6 +38,11 @@ public class CarrerasController {
 	
 	@Autowired
 	private ResultadoCarreraService resultadoCarreraService;
+
+
+    CarrerasController(EquipoService equipoService) {
+        this.equipoService = equipoService;
+    }
 
 	
 	@GetMapping("")
@@ -82,41 +86,62 @@ public class CarrerasController {
 			return "redirect:/carreras/jugar/" + carreraId;
 		}
 		
-		Piloto p;
+		List<Piloto> pilotosDeLaBd = pilotoService.findAllById(pilotoIds);
+		
+		List<Piloto> pilotosEnOrdenDeLlegada = new ArrayList<>();
+		
+		List<ResultadoCarrera> resultadosInput = new ArrayList<>();
+		
+		Long idDelFormulario;
+		
+		Piloto pilotoEncontrado;
+		
+		boolean encontrado;
 		
 		ResultadoCarrera res;
 		
 		double plusEquipo = 2000;
 		
-		List<Piloto> pilotosOrdenados = pilotoService.findAllById(pilotoIds);;
-		
-		
-
-		List<ResultadoCarrera> resultadosInput = new ArrayList<>();
 		
 		
 		for (int i = 0; i < pilotoIds.size(); i++) {
-			
-			
 			int posActual = posiciones[i];
 			
 			if (posActual > 0) { 
-				res = new ResultadoCarrera();
+				idDelFormulario = pilotoIds.get(i);
 				
-				p = new Piloto();
-				p.setId(pilotoIds.get(i));
+				pilotoEncontrado = null;
+				encontrado = false;
+
+				for (Piloto p : pilotosDeLaBd) {
+					if (!encontrado && p.getId().equals(idDelFormulario)) {
+						pilotoEncontrado = p;
+						encontrado = true;
+					}
+				}
 				
-				res.setPiloto(p);
-				res.setPosicion(posActual);
-				resultadosInput.add(res);
+				if (pilotoEncontrado != null) {
+					res = new ResultadoCarrera();
+					res.setPiloto(pilotoEncontrado);
+					res.setPosicion(posActual);
+					resultadosInput.add(res);
+				}
 			}
 		}
 	
+		resultadosInput.sort(Comparator.comparingInt(ResultadoCarrera::getPosicion));
 		
-		carreraService.repartirPremiosPorClasificacion(pilotosOrdenados, plusEquipo);
+		
+		for (ResultadoCarrera r : resultadosInput) {
+			pilotosEnOrdenDeLlegada.add(r.getPiloto());
+		}
+
+		
+		
+		carreraService.repartirPremiosPorClasificacion(pilotosEnOrdenDeLlegada, plusEquipo);
+		
 		resultadoCarreraService.registrarResultados(carreraId, resultadosInput);
 		 
-		
 		return "redirect:/carreras";
 	}
 	
@@ -153,7 +178,7 @@ public class CarrerasController {
 		model.addAttribute("carrera", carreraService.findById(id)
 			.orElseThrow(() -> new RuntimeException("Carrera no encontrada")));
 		model.addAttribute("temporadas", temporadaService.findAll());
-		return "carreras/form-carreras";
+		return "carreras/form-carrera";
 	}
 	
 	@PostMapping("/save")
@@ -162,8 +187,12 @@ public class CarrerasController {
 		Temporada t = temporadaService.findById(carrera.getTemporada().getId())
 	            .orElseThrow(() -> new RuntimeException("Temporada no encontrada"));
 		
+		if (carrera.getEquipos() != null) {
+	        carrera.setEquipos(new ArrayList<>(carrera.getEquipos()));
+	    }
+		
 		carrera.setTemporada(t);
-		carrera.setEquipos(t.getEquipos()); 
+		carrera.setEquipos(equipoService.findAll()); 
 		
 		carreraService.save(carrera);
 		return "redirect:/carreras";

@@ -41,7 +41,7 @@ public class MecanicoService extends BaseServiceImp<Mecanico, Long, MecanicoRepo
 	
 	public double calcularCosteReparacion(Long equipoId) {
 		
-		List<Mecanico> mecanicos = mecanicoRepository.findByEquipoId(equipoId);
+		List<Mecanico> mecanicos = mecanicoRepository.findByEquipos_Id(equipoId);
 		
 		List<Moto> motosDelEquipo = recogerMotosDelEquipo(equipoId);
 		

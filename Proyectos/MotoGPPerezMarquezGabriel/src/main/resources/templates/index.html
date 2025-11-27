@@ -24,13 +24,98 @@
         align-items: center;
         justify-content: center;
       }
+      .header-stripe-warning {
+        height: 3px;
+      }
+      .header-stripe-danger {
+        height: 2px;
+      }
+      .hero-card-bg {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.15) 0%, rgba(255, 193, 7, 0.15) 100%);
+        z-index: 0;
+      }
+      .hero-card-top-border {
+        height: 4px;
+        background: linear-gradient(90deg, #dc3545 0%, #ffc107 100%);
+        z-index: 1;
+      }
+      .main-logo {
+        font-size: 4rem;
+        letter-spacing: 3px;
+      }
+      .main-subtitle {
+        letter-spacing: 1px;
+        background: linear-gradient(90deg, #ffc107 0%, #dc3545 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .main-desc {
+        font-size: 1rem;
+      }
+      .icon-large {
+        font-size: 2.5rem;
+      }
+      .icon-medium {
+        font-size: 1.8rem;
+        color: #ffc107;
+      }
+      .btn-rojo {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        border: 2px solid #ffc107;
+        color: white;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+      }
+      .btn-rojo:hover {
+        background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+        color: #000;
+        transform: scale(1.05);
+      }
+      .btn-negro {
+        background: #181818;
+        border: 2px solid #ffc107;
+        color: #ffc107;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+      }
+      .btn-negro:hover {
+        background: linear-gradient(135deg, #ffc107 0%, #181818 100%);
+        color: #181818;
+        border-color: #dc3545;
+        transform: scale(1.05);
+      }
+      .stat-yellow {
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+        border-left: 3px solid #ffc107;
+      }
+      .stat-red {
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+        border-left: 3px solid #dc3545;
+      }
+      .stat-green {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+        border-left: 3px solid #28a745;
+      }
+      .stat-title {
+        font-size: 1.8rem;
+      }
+      .stat-label {
+        font-size: 1rem;
+      }
+      .stat-small {
+        font-size: 0.8rem;
+      }
     </style>
   </head>
   <body>
     <div class="content-wrapper">
       <!-- Header stripes -->
-      <div class="bg-warning" style="height: 3px"></div>
-      <div class="bg-danger" style="height: 2px"></div>
+  <div class="bg-warning header-stripe-warning"></div>
+  <div class="bg-danger header-stripe-danger"></div>
 
       <!-- Navbar -->
       <nav
@@ -83,179 +168,64 @@
                 class="card bg-black text-white border-0 shadow-lg position-relative overflow-hidden"
               >
                 <!-- Efecto de fondo con gradiente -->
-                <div
-                  class="position-absolute w-100 h-100"
-                  style="
-                    background: linear-gradient(
-                      135deg,
-                      rgba(220, 53, 69, 0.15) 0%,
-                      rgba(255, 193, 7, 0.15) 100%
-                    );
-                    z-index: 0;
-                  "
-                ></div>
-
-                <!-- Borde superior decorativo -->
-                <div
-                  class="position-absolute top-0 w-100"
-                  style="
-                    height: 4px;
-                    background: linear-gradient(
-                      90deg,
-                      #dc3545 0%,
-                      #ffc107 100%
-                    );
-                    z-index: 1;
-                  "
-                ></div>
-
-                <div
-                  class="position-relative text-center p-4"
-                  style="z-index: 2"
-                >
+                <div class="position-absolute w-100 h-100 hero-card-bg"></div>
+                  <!-- Borde superior decorativo -->
+                  <div class="position-absolute top-0 w-100 hero-card-top-border"></div>
+                  <div class="position-relative text-center p-4" style="z-index: 2">
                   <!-- Logo principal -->
                   <div class="mb-3">
-                    <h1
-                      class="fw-bold mb-0"
-                      style="font-size: 4rem; letter-spacing: 3px"
-                    >
-                      <span class="text-warning">MOTO</span
-                      ><span class="text-danger">GP</span>
+                    <h1 class="fw-bold mb-0 main-logo">
+                      <span class="text-warning">MOTO</span><span class="text-danger">GP</span>
                     </h1>
                   </div>
 
                   <!-- Subtítulo -->
                   <div class="mb-3">
-                    <h2 class="h3 mb-2 fw-bold" style="letter-spacing: 1px">
-                      <span
-                        style="
-                          background: linear-gradient(
-                            90deg,
-                            #ffc107 0%,
-                            #dc3545 100%
-                          );
-                          -webkit-background-clip: text;
-                          -webkit-text-fill-color: transparent;
-                          background-clip: text;
-                        "
-                      >
-                        Bienvenido al Mundo de la Velocidad
-                      </span>
+                    <h2 class="h3 mb-2 fw-bold main-subtitle">
+                      Bienvenido al Mundo de la Velocidad
                     </h2>
-                    <p class="mb-0 text-light" style="font-size: 1rem">
-                      Descubre la emoción de la máxima categoría del
-                      motociclismo mundial.<br />
-                      Pilotos, equipos, circuitos y toda la adrenalina de
-                      MotoGP.
+                    <p class="mb-0 text-light main-desc">
+                      Descubre la emoción de la máxima categoría del motociclismo mundial.<br />
+                      Pilotos, equipos, circuitos y toda la adrenalina de MotoGP.
                     </p>
                   </div>
 
                   <!-- Decoración con iconos -->
-                  <div class="mb-4">
-                    <span style="font-size: 2.5rem">🏍️</span>
-                    <span class="mx-2" style="font-size: 1.8rem; color: #ffc107"
-                      >⚡</span
-                    >
-                    <span style="font-size: 2.5rem">🏁</span>
-                  </div>
+                    <div class="mb-4">
+                      <span class="icon-large">🏍️</span>
+                      <span class="mx-2 icon-medium">⚡</span>
+                      <span class="icon-large">🏁</span>
+                    </div>
 
                   <!-- Botones de acción -->
                   <div class="row g-3 justify-content-center mb-3">
                     <!-- Rojo: Pilotos -->
                     <div class="col-md-5 col-lg-4">
-                      <a
-                        th:href="@{/pilotos}"
-                        class="btn w-100 py-3 fw-bold text-uppercase"
-                        style="
-                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-                          border: 2px solid #ffc107;
-                          color: white;
-                          letter-spacing: 1px;
-                          font-size: 0.95rem;
-                          transition: all 0.3s ease;
-                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-                        "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
-                      >
+                      <a th:href="@{/pilotos}" class="btn w-100 py-3 fw-bold text-uppercase btn-rojo">
                         🏍️ Explorar Pilotos
                       </a>
                     </div>
                     <!-- Negro: Carreras -->
                     <div class="col-md-5 col-lg-4">
-                      <a
-                        href="/carreras"
-                        class="btn w-100 py-3 fw-bold text-uppercase"
-                        style="
-                          background: #181818;
-                          border: 2px solid #ffc107;
-                          color: #ffc107;
-                          letter-spacing: 1px;
-                          font-size: 0.95rem;
-                          transition: all 0.3s ease;
-                        "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #181818 100%)'; this.style.color='#181818'; this.style.borderColor='#dc3545'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='#181818'; this.style.color='#ffc107'; this.style.borderColor='#ffc107'; this.style.transform='scale(1)'"
-                      >
+                      <a href="/carreras" class="btn w-100 py-3 fw-bold text-uppercase btn-negro">
                         🏁 Ver Carreras
                       </a>
                     </div>
                     <!-- Rojo: Equipos -->
                     <div class="col-md-5 col-lg-4">
-                      <a
-                        href="/equipos"
-                        class="btn w-100 py-3 fw-bold text-uppercase"
-                        style="
-                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-                          border: 2px solid #ffc107;
-                          color: white;
-                          letter-spacing: 1px;
-                          font-size: 0.95rem;
-                          transition: all 0.3s ease;
-                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-                        "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
-                      >
+                      <a href="/equipos" class="btn w-100 py-3 fw-bold text-uppercase btn-rojo">
                         🏆 Ver Equipos
                       </a>
                     </div>
                     <!-- Negro: Temporadas -->
                     <div class="col-md-5 col-lg-4">
-                      <a
-                        href="/temporadas"
-                        class="btn w-100 py-3 fw-bold text-uppercase"
-                        style="
-                          background: #181818;
-                          border: 2px solid #ffc107;
-                          color: #ffc107;
-                          letter-spacing: 1px;
-                          font-size: 0.95rem;
-                          transition: all 0.3s ease;
-                        "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #181818 100%)'; this.style.color='#181818'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='#181818'; this.style.color='#ffc107'; this.style.transform='scale(1)'"
-                      >
+                      <a href="/temporadas" class="btn w-100 py-3 fw-bold text-uppercase btn-negro">
                         📅 Ver Temporadas
                       </a>
                     </div>
                     <!-- Rojo: Clasificación -->
                     <div class="col-md-5 col-lg-4">
-                      <a
-                        href="/temporadas/clasificacion"
-                        class="btn w-100 py-3 fw-bold text-uppercase"
-                        style="
-                          background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-                          border: 2px solid #ffc107;
-                          color: white;
-                          letter-spacing: 1px;
-                          font-size: 0.95rem;
-                          transition: all 0.3s ease;
-                          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
-                        "
-                        onmouseover="this.style.background='linear-gradient(135deg, #ffc107 0%, #ff9800 100%)'; this.style.color='#000'; this.style.transform='scale(1.05)'"
-                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545 0%, #c82333 100%)'; this.style.color='white'; this.style.transform='scale(1)'"
-                      >
+                      <a href="/temporadas/clasificacion" class="btn w-100 py-3 fw-bold text-uppercase btn-rojo">
                         🥇 Clasificación
                       </a>
                     </div>
@@ -264,90 +234,24 @@
                   <!-- Stats decorativos -->
                   <div class="row g-3">
                     <div class="col-md-4">
-                      <div
-                        class="p-3 rounded-3"
-                        style="
-                          background: linear-gradient(
-                            135deg,
-                            rgba(255, 193, 7, 0.1) 0%,
-                            rgba(255, 193, 7, 0.05) 100%
-                          );
-                          border-left: 3px solid #ffc107;
-                        "
-                      >
-                        <div
-                          class="text-warning fw-bold"
-                          style="font-size: 1.8rem"
-                        >
-                          ⚡
-                        </div>
-                        <div
-                          class="text-white fw-bold mt-1"
-                          style="font-size: 1rem"
-                        >
-                          VELOCIDAD
-                        </div>
-                        <small class="text-muted" style="font-size: 0.8rem"
-                          >Máxima Adrenalina</small
-                        >
+                      <div class="p-3 rounded-3 stat-yellow">
+                        <div class="text-warning fw-bold stat-title">⚡</div>
+                        <div class="text-white fw-bold mt-1 stat-label">VELOCIDAD</div>
+                        <small class="text-muted stat-small">Máxima Adrenalina</small>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div
-                        class="p-3 rounded-3"
-                        style="
-                          background: linear-gradient(
-                            135deg,
-                            rgba(220, 53, 69, 0.1) 0%,
-                            rgba(220, 53, 69, 0.05) 100%
-                          );
-                          border-left: 3px solid #dc3545;
-                        "
-                      >
-                        <div
-                          class="text-danger fw-bold"
-                          style="font-size: 1.8rem"
-                        >
-                          🏆
-                        </div>
-                        <div
-                          class="text-white fw-bold mt-1"
-                          style="font-size: 1rem"
-                        >
-                          COMPETICIÓN
-                        </div>
-                        <small class="text-muted" style="font-size: 0.8rem"
-                          >Elite Mundial</small
-                        >
+                      <div class="p-3 rounded-3 stat-red">
+                        <div class="text-danger fw-bold stat-title">🏆</div>
+                        <div class="text-white fw-bold mt-1 stat-label">COMPETICIÓN</div>
+                        <small class="text-muted stat-small">Elite Mundial</small>
                       </div>
                     </div>
                     <div class="col-md-4">
-                      <div
-                        class="p-3 rounded-3"
-                        style="
-                          background: linear-gradient(
-                            135deg,
-                            rgba(40, 167, 69, 0.1) 0%,
-                            rgba(40, 167, 69, 0.05) 100%
-                          );
-                          border-left: 3px solid #28a745;
-                        "
-                      >
-                        <div
-                          class="text-success fw-bold"
-                          style="font-size: 1.8rem"
-                        >
-                          ⭐
-                        </div>
-                        <div
-                          class="text-white fw-bold mt-1"
-                          style="font-size: 1rem"
-                        >
-                          EMOCIÓN
-                        </div>
-                        <small class="text-muted" style="font-size: 0.8rem"
-                          >Pura Pasión</small
-                        >
+                      <div class="p-3 rounded-3 stat-green">
+                        <div class="text-success fw-bold stat-title">⭐</div>
+                        <div class="text-white fw-bold mt-1 stat-label">EMOCIÓN</div>
+                        <small class="text-muted stat-small">Pura Pasión</small>
                       </div>
                     </div>
                   </div>
