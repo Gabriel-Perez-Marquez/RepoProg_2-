@@ -5,27 +5,24 @@ public class Pelicula {
 	
 	private Long id;
 	private String nombre;
-	private String descripcion;
+	private String genero;
 	private double precio;
 	private double duracion;
 	
 	
-	
-	public Pelicula(Long id, String nombre, String descripcion, double precio, double duracion) {
+	public Pelicula(Long id, String nombre, String genero, double precio, double duracion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
+		this.genero = genero;
 		this.precio = precio;
 		this.duracion = duracion;
 	}
 
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 
 	public void setId(Long id) {
@@ -43,13 +40,13 @@ public class Pelicula {
 	}
 
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getGenero() {
+		return genero;
 	}
 
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
 
@@ -73,12 +70,23 @@ public class Pelicula {
 	}
 
 
+	
+
 
 	@Override
 	public String toString() {
-		return "Pelicula [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
+		return "Pelicula [id=" + id + ", nombre=" + nombre + ", descripcion=" + genero + ", precio=" + precio
 				+ ", duracion=" + duracion + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

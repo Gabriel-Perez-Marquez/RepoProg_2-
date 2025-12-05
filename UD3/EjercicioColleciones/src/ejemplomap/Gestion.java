@@ -1,8 +1,8 @@
 package ejemplomap;
 
+import java.util.HashMap;
 import java.util.Map;
-
-import ejemploset.Producto;
+import java.util.TreeMap;
 
 public class Gestion {
 	
@@ -46,15 +46,39 @@ public class Gestion {
 	
 	
 	
-	public double calcularPrecioTotalPorStock (int stockMin) {
-		double precioTotal = 0;
+	
+	
+	public Map<Long, String> verPeliculasPorGenero(String genero) {
+        Map<Long, String> peliculasPorGenero = new HashMap<Long, String>();
+        
+        Long nextId = 1L;
+        
+        for(Pelicula p : listPeliculas.values()) {
+        	if(p.getGenero().equalsIgnoreCase(genero)) {
+        		peliculasPorGenero.put(nextId, p.getNombre());
+        		nextId++;
+        	}
+        }
+        
+        return peliculasPorGenero;
+        
+    }
+	
+	public Map<Long, Pelicula> ordenarPeliculasPorPrecio(double precioMin) {
+		Map<Long, Pelicula> peliculasOrdenadas = new TreeMap<Long, Pelicula>();
+		Long nextId = 1L;
+		
 		
 		for(Pelicula p : listPeliculas.values()) {
-			if (p.getStock()) {
-				
+			
+			if(p.getPrecio() > precioMin) {
+				peliculasOrdenadas.put(nextId, p);
+				nextId++;
 			}
 		}
 		
+		
+		return peliculasOrdenadas;
 	}
 
 }
