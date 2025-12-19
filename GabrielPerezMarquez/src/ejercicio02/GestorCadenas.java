@@ -1,7 +1,8 @@
 package ejercicio02;
 
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class GestorCadenas {
@@ -50,14 +51,23 @@ public class GestorCadenas {
 	}
 	
 	
-	public void borrarCadenasImpares() {
-		listaCadenas.stream().filter(c -> (c.length()%2) !=0).toList();
+	public List<String> borrarCadenasImpares() {
+		listaCadenas.removeIf(c -> c.length()%2 !=0);
+		return listaCadenas;
 	}
 	
 	
 	public List<String> pasarCadenasAMayusculas () {
 		return listaCadenas.stream().map(c -> c.toUpperCase()).toList();
 	}
+	
+	
+	public boolean validarCadena(String texto, Pattern pattern) {
+		Matcher matcher = pattern.matcher(texto);
 		
+		return matcher.find();
+	}
+	
+	
 
 }
