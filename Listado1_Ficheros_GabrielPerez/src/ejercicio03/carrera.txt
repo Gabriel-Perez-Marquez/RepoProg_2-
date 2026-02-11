@@ -1,0 +1,13 @@
+Carrera: America's Cup
+-Barco:1
+	Nombre: Barco 1
+	Posición: 1
+	Tiempo: 1.5
+-Barco:2
+	Nombre: barco 2
+	Posición: 2
+	Tiempo: 1.55
+-Barco:3
+	Nombre: BArco 3
+	Posición: 3
+	Tiempo: 1.75
